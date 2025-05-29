@@ -38,6 +38,7 @@ class Qti30MarshallerFactory extends MarshallerFactory
         parent::__construct();
 
         $this->setWebComponentFriendly(true);
+        $this->removeMappingEntry('assessmentItem');
         $this->removeMappingEntry('associableHotspot');
         $this->removeMappingEntry('gap');
         $this->removeMappingEntry('gapImg');
@@ -77,6 +78,7 @@ class Qti30MarshallerFactory extends MarshallerFactory
         $this->removeMappingEntry('templateInline');
         $this->removeMappingEntry('infoControl');
 
+        $this->addMappingEntry('qti-assessment-item', AssessmentItemMarshaller::class);
         $this->addMappingEntry('qti-associable-hotspot', HotspotMarshaller::class);
         $this->addMappingEntry('qti-gap', GapMarshaller::class);
         $this->addMappingEntry('qti-gap-img', GapChoiceMarshaller::class);

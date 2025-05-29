@@ -31,6 +31,7 @@ use qtism\data\QtiComponent;
 use qtism\data\state\OutcomeDeclarationCollection;
 use qtism\data\state\ResponseDeclarationCollection;
 use qtism\data\state\TemplateDeclarationCollection;
+use qtism\common\utils\Version;
 
 /**
  * Marshalling/Unmarshalling implementation for AssessmentItem.
@@ -47,6 +48,7 @@ class AssessmentItemMarshaller extends Marshaller
      */
     protected function marshall(QtiComponent $component): DOMElement
     {
+
         $element = $this->createElement($component);
 
         $this->setDOMElementAttribute($element, 'identifier', $component->getIdentifier());
@@ -128,6 +130,8 @@ class AssessmentItemMarshaller extends Marshaller
      */
     protected function unmarshall(DOMElement $element, AssessmentItem $assessmentItem = null): AssessmentItem
     {
+        var_dump($component);
+        die();
         if (($identifier = $this->getDOMElementAttributeAs($element, 'identifier')) !== null) {
             if (($timeDependent = $this->getDOMElementAttributeAs($element, 'timeDependent', 'boolean')) !== null) {
                 if (($title = $this->getDOMElementAttributeAs($element, 'title')) !== null) {
@@ -257,6 +261,7 @@ class AssessmentItemMarshaller extends Marshaller
      */
     public function getExpectedQtiClassName(): string
     {
-        return 'assessmentItem';
+        $version = $this->getVersion();
+        return (Version::compare($version, '3.0.0', '>=')) ? 'qti-assessment-item' : 'assessmentItem';
     }
 }

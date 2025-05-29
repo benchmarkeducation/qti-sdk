@@ -234,6 +234,8 @@ class XmlDocument extends QtiDocument
     protected function unmarshallElement(DomElement $element): QtiComponent
     {
         $factory = $this->version->getMarshallerFactory();
+        // var_dump($factory);
+        // die();
 
         // MarshallerNotFoundException can happen when creating the marshaller
         // for the main element, but also when creating a marshaller for an
@@ -343,9 +345,7 @@ class XmlDocument extends QtiDocument
      * @param QtiComponent $documentComponent The root component of the model that will be saved.
      * @param string $uri The URI where the saved file is supposed to be stored.
      */
-    protected function beforeSave(QtiComponent $documentComponent, $uri): void
-    {
-    }
+    protected function beforeSave(QtiComponent $documentComponent, $uri): void {}
 
     /**
      * Implementation of save.

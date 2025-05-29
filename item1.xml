@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v1p1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/qtiv2p1_imscpv1p2_v1p0
+                        http://www.imsglobal.org/xsd/imsqti_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_v2p1p1
+                        http://www.imsglobal.org/xsd/imsqti_metadata_v2p1 http://www.imsglobal.org/xsd/qti/qtiv2p1/imsqti_metadata_v2p1p1
+                        http://ltsc.ieee.org/xsd/LOM http://www.imsglobal.org/xsd/imsmd_loose_v1p3p2
+                        http://www.imsglobal.org/xsd/imsmd_v1p2 http://www.imsglobal.org/xsd/imsmd_v1p2p2
+                        http://www.w3.org/1998/Math/MathML http://www.w3.org/Math/XMLSchema/mathml2/mathml2"
+    title="__rep_question-title" adaptive="false" timeDependent="false"
+    identifier="X53341-t01as01asi001">
+    <responseDeclaration identifier="RESPONSE_1" cardinality="single" baseType="identifier">
+        <correctResponse>
+            <value>X53341-t01as01asi001asic003</value>
+        </correctResponse>
+        <mapping defaultValue="0">
+            <mapEntry mapKey="X53341-t01as01asi001asic003" mappedValue="1" />
+        </mapping>
+    </responseDeclaration>
+    <responseDeclaration identifier="RESPONSE_2" cardinality="single" baseType="identifier">
+        <correctResponse>
+            <value>X53341-t01as01asi001asic008</value>
+        </correctResponse>
+        <mapping defaultValue="0">
+            <mapEntry mapKey="X53341-t01as01asi001asic008" mappedValue="1" />
+        </mapping>
+    </responseDeclaration>
+    <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float">
+        <defaultValue>
+            <value>0</value>
+        </defaultValue>
+    </outcomeDeclaration>
+    <outcomeDeclaration identifier="RESPONSE_1_SCORE" cardinality="single" baseType="float">
+        <defaultValue>
+            <value>0</value>
+        </defaultValue>
+    </outcomeDeclaration>
+    <outcomeDeclaration identifier="RESPONSE_2_SCORE" cardinality="single" baseType="float">
+        <defaultValue>
+            <value>0</value>
+        </defaultValue>
+    </outcomeDeclaration>
+    <outcomeDeclaration identifier="MAXSCORE" cardinality="single" baseType="float">
+        <defaultValue>
+            <value>2</value>
+        </defaultValue>
+    </outcomeDeclaration>
+    <outcomeDeclaration identifier="FEEDBACKBASIC" cardinality="single" baseType="identifier">
+        <defaultValue>
+            <value>empty</value>
+        </defaultValue>
+    </outcomeDeclaration>
+    <outcomeDeclaration identifier="MINSCORE" cardinality="single" baseType="float"
+        view="testConstructor">
+        <defaultValue>
+            <value>0</value>
+        </defaultValue>
+    </outcomeDeclaration>
+    <stylesheet href="styles/X53341-t01css001.css" type="text/css" />
+    <itemBody>
+        <div class="pane QTI-3-6">
+            <!--<rubricBlock
+            view="scorer"></rubricBlock>-->
+            <!--<rubricBlock
+            view="scorer"><div id="qti-sample-answer"></div></rubricBlock>-->
+            <rubricBlock view="candidate">
+                <object type="text/html" data="html/X53341-t01html001.html"></object>
+            </rubricBlock>
+        </div>
+        <div class="pane QTI-3-6">
+            <object data_optional="true" data="media/X53341-question001-audio001.mp3"
+                type="audio/mpeg" />
+            <p><strong>1. </strong>This question has two parts. First, answer Part A. Then answer
+                Part B.</p>
+            <p><strong>Part A﻿ </strong>Who is the narrator of “Scarlet Fever Summer”?</p>
+            <choiceInteraction responseIdentifier="RESPONSE_1" shuffle="false" maxChoices="1">
+                <simpleChoice identifier="X53341-t01as01asi001asic001"><strong>A. </strong>Mother</simpleChoice>
+                <simpleChoice identifier="X53341-t01as01asi001asic002"><strong>B. </strong>Father</simpleChoice>
+                <simpleChoice identifier="X53341-t01as01asi001asic003"><strong>C. </strong>Miles</simpleChoice>
+                <simpleChoice identifier="X53341-t01as01asi001asic004"><strong>D. </strong>an
+                    outside observer</simpleChoice>
+            </choiceInteraction>
+            <p><strong>Part B﻿ </strong>Which sentence from paragraph 7 supports the answer to Part
+                A? Click on the sentence you choose.</p>
+            <hottextInteraction responseIdentifier="RESPONSE_2" shuffle="false" maxChoices="1">
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="40%" valign="top">
+                                <p>
+                                    <hottext identifier="X53341-t01as01asi001asic005">Father painted
+                                        the most beautiful of all his paintings. </hottext>
+                                    <hottext identifier="X53341-t01as01asi001asic006">Every tree,
+                                        every current in the river, every cloud, and every inch of
+                                        blue sky looked real. </hottext>
+                                    <hottext identifier="X53341-t01as01asi001asic007">He painted a
+                                        group of young boys enjoying themselves by the river,
+                                        playing ball, swimming, and fishing. </hottext>
+                                    <hottext identifier="X53341-t01as01asi001asic008">I imagined
+                                        myself there with my brothers, shouting and laughing. </hottext>
+                                    <hottext identifier="X53341-t01as01asi001asic009">And so the
+                                        days passed.</hottext>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </hottextInteraction>
+        </div>
+    </itemBody>
+    <responseProcessing>
+        <responseCondition>
+            <responseIf>
+                <not>
+                    <isNull>
+                        <variable identifier="RESPONSE_1" />
+                    </isNull>
+                </not>
+                <setOutcomeValue identifier="RESPONSE_1_SCORE">
+                    <sum>
+                        <variable identifier="RESPONSE_1_SCORE" />
+                        <mapResponse identifier="RESPONSE_1" />
+                    </sum>
+                </setOutcomeValue>
+                <setOutcomeValue identifier="FEEDBACKBASIC">
+                    <baseValue baseType="identifier">X53341-t01as01asi001f001</baseValue>
+                </setOutcomeValue>
+            </responseIf>
+        </responseCondition>
+        <responseCondition>
+            <responseIf>
+                <and>
+                    <match>
+                        <variable identifier="RESPONSE_1" />
+                        <correct identifier="RESPONSE_1" />
+                    </match>
+                    <not>
+                        <isNull>
+                            <variable identifier="RESPONSE_2" />
+                        </isNull>
+                    </not>
+                </and>
+                <setOutcomeValue identifier="RESPONSE_2_SCORE">
+                    <sum>
+                        <variable identifier="RESPONSE_2_SCORE" />
+                        <mapResponse identifier="RESPONSE_2" />
+                    </sum>
+                </setOutcomeValue>
+                <setOutcomeValue identifier="FEEDBACKBASIC">
+                    <baseValue baseType="identifier">X53341-t01as01asi001f001</baseValue>
+                </setOutcomeValue>
+            </responseIf>
+        </responseCondition>
+
+        <setOutcomeValue identifier="SCORE">
+            <sum>
+                <variable identifier="RESPONSE_1_SCORE" />
+                <variable identifier="RESPONSE_2_SCORE" />
+            </sum>
+        </setOutcomeValue>
+    </responseProcessing>
+    <!-- <testFeedback identifier="X53341-t01as01asi001f001" outcomeIdentifier="FEEDBACKBASIC"
+    showHide="show" title="Feedback">
+</testFeedback> -->
+</assessmentItem>

@@ -382,6 +382,8 @@ abstract class MarshallerFactory
      */
     public function createMarshaller($object, array $args = []): Marshaller
     {
+        // var_dump($object);
+
         if ($object instanceof QtiComponent) {
             // Asking for a Marshaller...
             $qtiClassName = $object->getQtiClassName();
@@ -394,6 +396,14 @@ abstract class MarshallerFactory
             $qtiClassName = $object->localName;
         }
 
+        // echo $object->namespaceURI;
+
+        // if ($this->hasMappingEntry($qtiClassName, $object->namespaceURI)) {
+        //     echo 'true';
+        // } else {
+        //     echo 'false';
+        // }
+        // die();
         if (isset($qtiClassName)) {
             try {
                 // Look for a mapping entry.
@@ -413,8 +423,12 @@ abstract class MarshallerFactory
                 throw new MarshallerNotFoundException($msg, $qtiClassName, $e);
             }
 
+            // var_dump($class, $this);
+            // die();
+
             $marshaller = $this->instantiateMarshaller($class, $args);
             $marshaller->setMarshallerFactory($this);
+
 
             return $marshaller;
         } else {

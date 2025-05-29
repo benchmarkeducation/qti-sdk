@@ -349,6 +349,9 @@ abstract class Marshaller
 
     protected function checkUnmarshallerImplementation($element): void
     {
+        // var_dump($element, );
+        // echo $this->getExpectedQtiClassName();
+        // die();
         if (!$element instanceof DOMElement || ($this->getExpectedQtiClassName() !== '' && $element->localName !== $this->getExpectedQtiClassName())) {
             $nodeName = $this->getElementName($element);
             throw new RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
