@@ -24,6 +24,7 @@
 namespace qtism\data\storage\xml\marshalling;
 
 use DOMElement;
+use RuntimeException;
 use qtism\data\AssessmentItem;
 use qtism\data\content\ModalFeedbackCollection;
 use qtism\data\content\StylesheetCollection;
@@ -51,7 +52,14 @@ class AssessmentItemMarshaller extends Marshaller
 
         $this->setDOMElementAttribute($element, 'identifier', $component->getIdentifier());
         $this->setDOMElementAttribute($element, 'title', $component->getTitle());
-        $this->setDOMElementAttribute($element, 'timeDependent', $component->isTimeDependent());
+        
+        // Handle QTI 3.0 kebab-case attributes
+        if ($this->getVersion() === '3.0.0') {
+            $this->setDOMElementAttribute($element, 'time-dependent', $component->isTimeDependent());
+        } else {
+            $this->setDOMElementAttribute($element, 'timeDependent', $component->isTimeDependent());
+        }
+        
         $this->setDOMElementAttribute($element, 'adaptive', $component->isAdaptive());
 
         if ($component->hasLang() === true) {
@@ -63,11 +71,19 @@ class AssessmentItemMarshaller extends Marshaller
         }
 
         if ($component->hasToolName() === true) {
-            $this->setDOMElementAttribute($element, 'toolName', $component->getToolName());
+            if ($this->getVersion() === '3.0.0') {
+                $this->setDOMElementAttribute($element, 'tool-name', $component->getToolName());
+            } else {
+                $this->setDOMElementAttribute($element, 'toolName', $component->getToolName());
+            }
         }
 
         if ($component->hasToolVersion() === true) {
-            $this->setDOMElementAttribute($element, 'toolVersion', $component->getToolVersion());
+            if ($this->getVersion() === '3.0.0') {
+                $this->setDOMElementAttribute($element, 'tool-version', $component->getToolVersion());
+            } else {
+                $this->setDOMElementAttribute($element, 'toolVersion', $component->getToolVersion());
+            }
         }
 
         foreach ($component->getResponseDeclarations() as $responseDeclaration) {
@@ -129,7 +145,9 @@ class AssessmentItemMarshaller extends Marshaller
     protected function unmarshall(DOMElement $element, AssessmentItem $assessmentItem = null): AssessmentItem
     {
         if (($identifier = $this->getDOMElementAttributeAs($element, 'identifier')) !== null) {
-            if (($timeDependent = $this->getDOMElementAttributeAs($element, 'timeDependent', 'boolean')) !== null) {
+            // Handle QTI 3.0 kebab-case attributes
+            $timeDependentAttr = ($this->getVersion() === '3.0.0') ? 'time-dependent' : 'timeDependent';
+            if (($timeDependent = $this->getDOMElementAttributeAs($element, $timeDependentAttr, 'boolean')) !== null) {
                 if (($title = $this->getDOMElementAttributeAs($element, 'title')) !== null) {
                     if (empty($assessmentItem)) {
                         $object = new AssessmentItem($identifier, $title, $timeDependent);
@@ -151,15 +169,18 @@ class AssessmentItemMarshaller extends Marshaller
                         $object->setAdaptive($adaptive);
                     }
 
-                    if (($toolName = $this->getDOMElementAttributeAs($element, 'toolName')) !== null) {
+                    $toolNameAttr = ($this->getVersion() === '3.0.0') ? 'tool-name' : 'toolName';
+                    if (($toolName = $this->getDOMElementAttributeAs($element, $toolNameAttr)) !== null) {
                         $object->setToolName($toolName);
                     }
 
-                    if (($toolVersion = $this->getDOMElementAttributeAs($element, 'toolVersion')) !== null) {
+                    $toolVersionAttr = ($this->getVersion() === '3.0.0') ? 'tool-version' : 'toolVersion';
+                    if (($toolVersion = $this->getDOMElementAttributeAs($element, $toolVersionAttr)) !== null) {
                         $object->setToolVersion($toolVersion);
                     }
 
-                    $responseDeclarationElts = $this->getChildElementsByTagName($element, 'responseDeclaration');
+                    $responseDeclarationTag = ($this->getVersion() === '3.0.0') ? 'qti-response-declaration' : 'responseDeclaration';
+                    $responseDeclarationElts = $this->getChildElementsByTagName($element, $responseDeclarationTag);
                     if (!empty($responseDeclarationElts)) {
                         $responseDeclarations = new ResponseDeclarationCollection();
 
@@ -171,7 +192,8 @@ class AssessmentItemMarshaller extends Marshaller
                         $object->setResponseDeclarations($responseDeclarations);
                     }
 
-                    $outcomeDeclarationElts = $this->getChildElementsByTagName($element, 'outcomeDeclaration');
+                    $outcomeDeclarationTag = ($this->getVersion() === '3.0.0') ? 'qti-outcome-declaration' : 'outcomeDeclaration';
+                    $outcomeDeclarationElts = $this->getChildElementsByTagName($element, $outcomeDeclarationTag);
                     if (!empty($outcomeDeclarationElts)) {
                         $outcomeDeclarations = new OutcomeDeclarationCollection();
 
@@ -213,13 +235,15 @@ class AssessmentItemMarshaller extends Marshaller
                         $object->setStylesheets($stylesheets);
                     }
 
-                    $itemBodyElts = $this->getChildElementsByTagName($element, 'itemBody');
+                    $itemBodyTag = ($this->getVersion() === '3.0.0') ? 'qti-item-body' : 'itemBody';
+                    $itemBodyElts = $this->getChildElementsByTagName($element, $itemBodyTag);
                     if (count($itemBodyElts) > 0) {
                         $marshaller = $this->getMarshallerFactory()->createMarshaller($itemBodyElts[0]);
                         $object->setItemBody($marshaller->unmarshall($itemBodyElts[0]));
                     }
 
-                    $responseProcessingElts = $this->getChildElementsByTagName($element, 'responseProcessing');
+                    $responseProcessingTag = ($this->getVersion() === '3.0.0') ? 'qti-response-processing' : 'responseProcessing';
+                    $responseProcessingElts = $this->getChildElementsByTagName($element, $responseProcessingTag);
                     if (!empty($responseProcessingElts)) {
                         $marshaller = $this->getMarshallerFactory()->createMarshaller($responseProcessingElts[0]);
                         $object->setResponseProcessing($marshaller->unmarshall($responseProcessingElts[0]));
@@ -258,5 +282,33 @@ class AssessmentItemMarshaller extends Marshaller
     public function getExpectedQtiClassName(): string
     {
         return 'assessmentItem';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['assessmentItem', 'qti-assessment-item'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

@@ -81,7 +81,8 @@ class ResponseDeclarationMarshaller extends VariableDeclarationMarshaller
             $object->setCardinality($baseComponent->getCardinality());
             $object->setDefaultValue($baseComponent->getDefaultValue());
 
-            $correctResponseElts = $this->getChildElementsByTagName($element, 'correctResponse');
+            $correctResponseTag = ($this->getVersion() === '3.0.0') ? 'qti-correct-response' : 'correctResponse';
+            $correctResponseElts = $this->getChildElementsByTagName($element, $correctResponseTag);
             if (count($correctResponseElts) === 1) {
                 $correctResponseElt = $correctResponseElts[0];
                 $marshaller = $this->getMarshallerFactory()->createMarshaller($correctResponseElt, [$baseComponent->getBaseType()]);
@@ -115,5 +116,33 @@ class ResponseDeclarationMarshaller extends VariableDeclarationMarshaller
     public function getExpectedQtiClassName(): string
     {
         return 'responseDeclaration';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['responseDeclaration', 'qti-response-declaration'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }
