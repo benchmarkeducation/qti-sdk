@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qti-assessment-test xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0"
+    identifier="complete-qti3-test" title="Complete QTI 3.0 Assessment Test">
+    
+    <qti-outcome-declaration identifier="TOTAL_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    
+    <qti-outcome-declaration identifier="PASS_FAIL" cardinality="single" base-type="identifier">
+        <qti-default-value>
+            <qti-value>fail</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    
+    <qti-test-part identifier="main-part" navigation-mode="linear" submission-mode="individual">
+        
+        <qti-assessment-section identifier="section-1" title="Mathematics Section" visible="true">
+            <qti-assessment-item-ref identifier="item-1" href="sample-qti3-simple.xml"/>
+            <qti-assessment-item-ref identifier="item-2" href="sample-qti3-item-complete.xml"/>
+        </qti-assessment-section>
+        
+        <qti-assessment-section identifier="section-2" title="Logic Section" visible="true">
+            <qti-selection with-replacement="false">
+                <qti-variable-value identifier="1"/>
+            </qti-selection>
+            <qti-assessment-item-ref identifier="item-3" href="sample-qti3-simple.xml"/>
+        </qti-assessment-section>
+        
+    </qti-test-part>
+    
+    <qti-outcome-processing>
+        <qti-set-outcome-value identifier="TOTAL_SCORE">
+            <qti-sum>
+                <qti-test-variables variable-identifier="SCORE"/>
+            </qti-sum>
+        </qti-set-outcome-value>
+        
+        <qti-outcome-condition>
+            <qti-outcome-if>
+                <qti-gte>
+                    <qti-variable identifier="TOTAL_SCORE"/>
+                    <qti-base-value base-type="float">2.0</qti-base-value>
+                </qti-gte>
+                <qti-set-outcome-value identifier="PASS_FAIL">
+                    <qti-base-value base-type="identifier">pass</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-outcome-if>
+        </qti-outcome-condition>
+    </qti-outcome-processing>
+    
+</qti-assessment-test>

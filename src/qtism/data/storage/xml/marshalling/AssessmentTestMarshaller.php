@@ -52,12 +52,14 @@ class AssessmentTestMarshaller extends SectionPartMarshaller
 
         $toolName = $component->getToolName();
         if (!empty($toolName)) {
-            $this->setDOMElementAttribute($element, 'toolName', $component->getToolName());
+            $toolNameAttr = ($this->getVersion() === '3.0.0') ? 'tool-name' : 'toolName';
+            $this->setDOMElementAttribute($element, $toolNameAttr, $component->getToolName());
         }
 
         $toolVersion = $component->getToolVersion();
         if (!empty($toolVersion)) {
-            $this->setDOMElementAttribute($element, 'toolVersion', $component->getToolVersion());
+            $toolVersionAttr = ($this->getVersion() === '3.0.0') ? 'tool-version' : 'toolVersion';
+            $this->setDOMElementAttribute($element, $toolVersionAttr, $component->getToolVersion());
         }
 
         foreach ($component->getOutcomeDeclarations() as $outcomeDeclaration) {
@@ -114,7 +116,8 @@ class AssessmentTestMarshaller extends SectionPartMarshaller
                 }
 
                 // Get the test parts.
-                $testPartsElts = $this->getChildElementsByTagName($element, 'testPart');
+                $testPartTag = ($this->getVersion() === '3.0.0') ? 'qti-test-part' : 'testPart';
+                $testPartsElts = $this->getChildElementsByTagName($element, $testPartTag);
 
                 if (count($testPartsElts) > 0) {
                     $testParts = new TestPartCollection();
@@ -126,11 +129,13 @@ class AssessmentTestMarshaller extends SectionPartMarshaller
 
                     $object->setTestParts($testParts);
 
-                    if (($toolName = $this->getDOMElementAttributeAs($element, 'toolName')) !== null) {
+                    $toolNameAttr = ($this->getVersion() === '3.0.0') ? 'tool-name' : 'toolName';
+                    if (($toolName = $this->getDOMElementAttributeAs($element, $toolNameAttr)) !== null) {
                         $object->setToolName($toolName);
                     }
 
-                    if (($toolVersion = $this->getDOMElementAttributeAs($element, 'toolVersion')) !== null) {
+                    $toolVersionAttr = ($this->getVersion() === '3.0.0') ? 'tool-version' : 'toolVersion';
+                    if (($toolVersion = $this->getDOMElementAttributeAs($element, $toolVersionAttr)) !== null) {
                         $object->setToolVersion($toolVersion);
                     }
 
@@ -146,7 +151,8 @@ class AssessmentTestMarshaller extends SectionPartMarshaller
                         $object->setTestFeedbacks($testFeedbacks);
                     }
 
-                    $outcomeDeclarationElts = $this->getChildElementsByTagName($element, 'outcomeDeclaration');
+                    $outcomeDeclarationTag = ($this->getVersion() === '3.0.0') ? 'qti-outcome-declaration' : 'outcomeDeclaration';
+                    $outcomeDeclarationElts = $this->getChildElementsByTagName($element, $outcomeDeclarationTag);
                     if (count($outcomeDeclarationElts) > 0) {
                         $outcomeDeclarations = new OutcomeDeclarationCollection();
 
@@ -158,7 +164,8 @@ class AssessmentTestMarshaller extends SectionPartMarshaller
                         $object->setOutcomeDeclarations($outcomeDeclarations);
                     }
 
-                    $outcomeProcessingElts = $this->getChildElementsByTagName($element, 'outcomeProcessing');
+                    $outcomeProcessingTag = ($this->getVersion() === '3.0.0') ? 'qti-outcome-processing' : 'outcomeProcessing';
+                    $outcomeProcessingElts = $this->getChildElementsByTagName($element, $outcomeProcessingTag);
                     if (isset($outcomeProcessingElts[0])) {
                         $marshaller = $this->getMarshallerFactory()->createMarshaller($outcomeProcessingElts[0]);
                         $object->setOutcomeProcessing($marshaller->unmarshall($outcomeProcessingElts[0]));
@@ -191,5 +198,33 @@ class AssessmentTestMarshaller extends SectionPartMarshaller
     public function getExpectedQtiClassName(): string
     {
         return 'assessmentTest';
+    }
+    
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['assessmentTest', 'qti-assessment-test'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

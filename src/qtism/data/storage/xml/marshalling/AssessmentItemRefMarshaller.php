@@ -107,29 +107,32 @@ class AssessmentItemRefMarshaller extends SectionPartMarshaller
             }
 
             // Deal with variableMappings.
-            $variableMappingElts = $element->getElementsByTagName('variableMapping');
+            $variableMappingTag = ($this->getVersion() === '3.0.0') ? 'qti-variable-mapping' : 'variableMapping';
+            $variableMappingElts = $this->getChildElementsByTagName($element, $variableMappingTag);
             $variableMappings = new VariableMappingCollection();
-            for ($i = 0; $i < $variableMappingElts->length; $i++) {
-                $marshaller = $this->getMarshallerFactory()->createMarshaller($variableMappingElts->item($i));
-                $variableMappings[] = $marshaller->unmarshall($variableMappingElts->item($i));
+            foreach ($variableMappingElts as $variableMappingElt) {
+                $marshaller = $this->getMarshallerFactory()->createMarshaller($variableMappingElt);
+                $variableMappings[] = $marshaller->unmarshall($variableMappingElt);
             }
             $object->setVariableMappings($variableMappings);
 
             // Deal with weights.
-            $weightElts = $element->getElementsByTagName('weight');
+            $weightTag = ($this->getVersion() === '3.0.0') ? 'qti-weight' : 'weight';
+            $weightElts = $this->getChildElementsByTagName($element, $weightTag);
             $weights = new WeightCollection();
-            for ($i = 0; $i < $weightElts->length; $i++) {
-                $marshaller = $this->getMarshallerFactory()->createMarshaller($weightElts->item($i));
-                $weights[] = $marshaller->unmarshall($weightElts->item($i));
+            foreach ($weightElts as $weightElt) {
+                $marshaller = $this->getMarshallerFactory()->createMarshaller($weightElt);
+                $weights[] = $marshaller->unmarshall($weightElt);
             }
             $object->setWeights($weights);
 
             // Deal with templateDefaults.
-            $templateDefaultElts = $element->getElementsByTagName('templateDefault');
+            $templateDefaultTag = ($this->getVersion() === '3.0.0') ? 'qti-template-default' : 'templateDefault';
+            $templateDefaultElts = $this->getChildElementsByTagName($element, $templateDefaultTag);
             $templateDefaults = new TemplateDefaultCollection();
-            for ($i = 0; $i < $templateDefaultElts->length; $i++) {
-                $marshaller = $this->getMarshallerFactory()->createMarshaller($templateDefaultElts->item($i));
-                $templateDefaults[] = $marshaller->unmarshall($templateDefaultElts->item($i));
+            foreach ($templateDefaultElts as $templateDefaultElt) {
+                $marshaller = $this->getMarshallerFactory()->createMarshaller($templateDefaultElt);
+                $templateDefaults[] = $marshaller->unmarshall($templateDefaultElt);
             }
             $object->setTemplateDefaults($templateDefaults);
 
@@ -146,5 +149,33 @@ class AssessmentItemRefMarshaller extends SectionPartMarshaller
     public function getExpectedQtiClassName(): string
     {
         return 'assessmentItemRef';
+    }
+    
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['assessmentItemRef', 'qti-assessment-item-ref'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

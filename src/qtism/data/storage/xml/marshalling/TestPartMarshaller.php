@@ -49,8 +49,10 @@ class TestPartMarshaller extends Marshaller
         $element = $this->createElement($component);
 
         $this->setDOMElementAttribute($element, 'identifier', $component->getIdentifier());
-        $this->setDOMElementAttribute($element, 'navigationMode', NavigationMode::getNameByConstant($component->getNavigationMode()));
-        $this->setDOMElementAttribute($element, 'submissionMode', SubmissionMode::getNameByConstant($component->getSubmissionMode()));
+        $navigationModeAttr = ($this->getVersion() === '3.0.0') ? 'navigation-mode' : 'navigationMode';
+        $submissionModeAttr = ($this->getVersion() === '3.0.0') ? 'submission-mode' : 'submissionMode';
+        $this->setDOMElementAttribute($element, $navigationModeAttr, NavigationMode::getNameByConstant($component->getNavigationMode()));
+        $this->setDOMElementAttribute($element, $submissionModeAttr, SubmissionMode::getNameByConstant($component->getSubmissionMode()));
 
         foreach ($component->getPreConditions() as $preCondition) {
             $marshaller = $this->getMarshallerFactory()->createMarshaller($preCondition);
@@ -96,12 +98,17 @@ class TestPartMarshaller extends Marshaller
     protected function unmarshall(DOMElement $element): TestPart
     {
         if (($identifier = $this->getDOMElementAttributeAs($element, 'identifier')) !== null) {
-            if (($navigationMode = $this->getDOMElementAttributeAs($element, 'navigationMode')) !== null) {
-                if (($submissionMode = $this->getDOMElementAttributeAs($element, 'submissionMode')) !== null) {
+            $navigationModeAttr = ($this->getVersion() === '3.0.0') ? 'navigation-mode' : 'navigationMode';
+            $submissionModeAttr = ($this->getVersion() === '3.0.0') ? 'submission-mode' : 'submissionMode';
+            if (($navigationMode = $this->getDOMElementAttributeAs($element, $navigationModeAttr)) !== null) {
+                if (($submissionMode = $this->getDOMElementAttributeAs($element, $submissionModeAttr)) !== null) {
                     // We do not use the regular DOMElement::getElementsByTagName method
                     // because it is recursive. We only want the first level elements with
                     // tagname = 'assessmentSection'.
-                    $assessmentSectionElts = $this->getChildElementsByTagName($element, ['assessmentSection', 'assessmentSectionRef']);
+                    $sectionTags = ($this->getVersion() === '3.0.0') ? 
+                        ['qti-assessment-section', 'qti-assessment-section-ref'] : 
+                        ['assessmentSection', 'assessmentSectionRef'];
+                    $assessmentSectionElts = $this->getChildElementsByTagName($element, $sectionTags);
                     $assessmentSections = new SectionPartCollection();
                     foreach ($assessmentSectionElts as $sectElt) {
                         $marshaller = $this->getMarshallerFactory()->createMarshaller($sectElt);
@@ -182,5 +189,33 @@ class TestPartMarshaller extends Marshaller
     public function getExpectedQtiClassName(): string
     {
         return 'testPart';
+    }
+    
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['testPart', 'qti-test-part'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

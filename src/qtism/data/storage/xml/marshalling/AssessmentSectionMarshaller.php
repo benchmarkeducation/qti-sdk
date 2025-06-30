@@ -73,12 +73,14 @@ class AssessmentSectionMarshaller extends RecursiveMarshaller
                 $object->setTimeLimits($baseComponent->getTimeLimits());
 
                 // Deal with the keepTogether attribute.
-                if (($keepTogether = $this->getDOMElementAttributeAs($element, 'keepTogether', 'boolean')) !== null) {
+                $keepTogetherAttr = ($this->getVersion() === '3.0.0') ? 'keep-together' : 'keepTogether';
+                if (($keepTogether = $this->getDOMElementAttributeAs($element, $keepTogetherAttr, 'boolean')) !== null) {
                     $object->setKeepTogether($keepTogether);
                 }
 
                 // Deal with selection elements.
-                $selectionElements = $this->getChildElementsByTagName($element, 'selection');
+                $selectionTag = ($this->getVersion() === '3.0.0') ? 'qti-selection' : 'selection';
+                $selectionElements = $this->getChildElementsByTagName($element, $selectionTag);
                 if (count($selectionElements) == 1) {
                     $select = (int)$selectionElements[0]->getAttribute('select');
 
@@ -89,14 +91,16 @@ class AssessmentSectionMarshaller extends RecursiveMarshaller
                 }
 
                 // Deal with ordering elements.
-                $orderingElements = $this->getChildElementsByTagName($element, 'ordering');
+                $orderingTag = ($this->getVersion() === '3.0.0') ? 'qti-ordering' : 'ordering';
+                $orderingElements = $this->getChildElementsByTagName($element, $orderingTag);
                 if (count($orderingElements) == 1) {
                     $marshaller = $this->getMarshallerFactory()->createMarshaller($orderingElements[0]);
                     $object->setOrdering($marshaller->unmarshall($orderingElements[0]));
                 }
 
                 // Deal with rubrickBlocks.
-                $rubricBlockElements = $this->getChildElementsByTagName($element, 'rubricBlock');
+                $rubricBlockTag = ($this->getVersion() === '3.0.0') ? 'qti-rubric-block' : 'rubricBlock';
+                $rubricBlockElements = $this->getChildElementsByTagName($element, $rubricBlockTag);
                 if (count($rubricBlockElements) > 0) {
                     $rubricBlocks = new RubricBlockCollection();
                     for ($i = 0; $i < count($rubricBlockElements); $i++) {
@@ -135,7 +139,8 @@ class AssessmentSectionMarshaller extends RecursiveMarshaller
 
         $this->setDOMElementAttribute($element, 'title', $component->getTitle());
         $this->setDOMElementAttribute($element, 'visible', $component->isVisible());
-        $this->setDOMElementAttribute($element, 'keepTogether', $component->mustKeepTogether());
+        $keepTogetherAttr = ($this->getVersion() === '3.0.0') ? 'keep-together' : 'keepTogether';
+        $this->setDOMElementAttribute($element, $keepTogetherAttr, $component->mustKeepTogether());
 
         // Deal with selection element
         $selection = $component->getSelection();
@@ -172,7 +177,7 @@ class AssessmentSectionMarshaller extends RecursiveMarshaller
      */
     protected function isElementFinal(DOMNode $element): bool
     {
-        return $element->localName != 'assessmentSection';
+        return !in_array($element->localName, ['assessmentSection', 'qti-assessment-section']);
     }
 
     /**
@@ -190,14 +195,22 @@ class AssessmentSectionMarshaller extends RecursiveMarshaller
      */
     protected function getChildrenElements(DOMElement $element): array
     {
-        if ($element->localName == 'assessmentSection') {
+        if (in_array($element->localName, ['assessmentSection', 'qti-assessment-section'])) {
             $doc = $element->ownerDocument;
             $xpath = new DOMXPath($doc);
+            
+            // Try QTI 2.x elements first
             $nodeList = $xpath->query('assessmentSection | assessmentSectionRef | assessmentItemRef', $element);
 
+            // If no QTI 2.x elements found, try QTI 3.0 elements
+            if ($nodeList->length == 0) {
+                $nodeList = $xpath->query('qti-assessment-section | qti-assessment-section-ref | qti-assessment-item-ref', $element);
+            }
+            
+            // If still no elements, try with namespace
             if ($nodeList->length == 0) {
                 $xpath->registerNamespace('qti', (string)$doc->lookupNamespaceURI($doc->namespaceURI));
-                $nodeList = $xpath->query('qti:assessmentSection | qti:assessmentSectionRef | qti:assessmentItemRef', $element);
+                $nodeList = $xpath->query('qti:assessmentSection | qti:assessmentSectionRef | qti:assessmentItemRef | qti:qti-assessment-section | qti:qti-assessment-section-ref | qti:qti-assessment-item-ref', $element);
             }
 
             $returnValue = [];

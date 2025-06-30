@@ -1,12 +1,21 @@
 # QTI 3.0 Support Implementation
 
-## Status: ✅ COMPLETE
-Both QTI 2.1 and QTI 3.0 files now load successfully with full backward compatibility.
+## Status: ✅ BASIC QTI 3.0 SUPPORT COMPLETE
+- ✅ QTI 2.1 files: Full support (load + validate + sessions)
+- ✅ QTI 3.0 basic files: Load successfully (assessment items, interactions, declarations)
+- ⚠️ QTI 3.0 complex response processing: Needs additional work
 
 ## Quick Test
 ```bash
+# Test without validation (recommended for QTI 3.0)
 php qti-tests/scripts/test-qti-novalidate.php
+
+# Test with validation (QTI 3.0 will fail XSD validation due to missing external schemas)
+php qti-tests/scripts/test-qti.php
 ```
+
+## Important Note
+**QTI 3.0 XSD validation fails** due to missing external schema dependencies (MathML, SSML). This is expected and does not affect the marshalling functionality. The QTI 3.0 files load and parse correctly.
 
 **Expected Output:**
 ```
@@ -148,8 +157,10 @@ $valueElements = $this->getChildElementsByTagName($element, $valueTag);
 | `baseType` | `base-type` |
 
 ## Test Files
-- `qti-tests/xml-files/sample-choice.xml` - QTI 2.1 choice interaction
-- `qti-tests/xml-files/sample-qti3.xml` - QTI 3.0 choice interaction
+- `qti-tests/xml-files/sample-choice.xml` - QTI 2.1 choice interaction (✅ Works)
+- `qti-tests/xml-files/sample-qti3.xml` - QTI 3.0 choice interaction (✅ Works)
+- `qti-tests/xml-files/sample-qti3-simple.xml` - Simple QTI 3.0 item (✅ Works)
+- `qti-tests/xml-files/sample-qti3-complete.xml` - Complex QTI 3.0 with response processing (⚠️ Infinite loop issue)
 - `qti-tests/scripts/test-qti-novalidate.php` - Test script
 
 ## Adding New QTI 3.0 Elements

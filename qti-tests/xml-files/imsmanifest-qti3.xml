@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+    xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2"
+    xmlns:imsqti="http://www.imsglobal.org/xsd/imsqtiasi_v3p0"
+    identifier="QTI3_MANIFEST" version="1.0">
+    
+    <metadata>
+        <schema>IMS Content</schema>
+        <schemaversion>1.1.3</schemaversion>
+    </metadata>
+    
+    <organizations default="TOC1">
+        <organization identifier="TOC1">
+            <title>QTI 3.0 Test Package</title>
+        </organization>
+    </organizations>
+    
+    <resources>
+        <resource identifier="test1" type="imsqti_test_xmlv3p0" href="sample-qti3-test.xml">
+            <file href="sample-qti3-test.xml"/>
+            <dependency identifierref="item1"/>
+        </resource>
+        
+        <resource identifier="item1" type="imsqti_item_xmlv3p0" href="sample-qti3-simple.xml">
+            <file href="sample-qti3-simple.xml"/>
+        </resource>
+    </resources>
+    
+</manifest>

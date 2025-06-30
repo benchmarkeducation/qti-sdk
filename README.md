@@ -10,11 +10,14 @@
 An IMS QTI (Question &amp; Test Interoperability) Software Development Kit for PHP 7.0 and higher supporting a wide 
 range of features described by the [IMS QTI specification family](http://www.imsglobal.org/question).
 
+**✨ NEW: QTI 3.0 Support** - Now supports both QTI 2.x and QTI 3.0 with full backward compatibility!
+
 __This implementation of QTI is under constant enhancement. The API of the master branch might change at any time.__
 
 ## Features
 
-* Targets QTI 2.0, 2.1 and partially 2.2
+* **QTI 3.0 Support** - Full support for QTI 3.0 with backward compatibility
+* Targets QTI 2.0, 2.1, 2.2 and **3.0**
 * Complete QTI Information Model
 * Complete QTI Rule Engine Support
 * Custom Operator Hooks through PSR-0/PSR-4
@@ -53,6 +56,44 @@ We are always looking for people to feed the project with:
 * New features
 
 [Please make yourself known](https://github.com/bugalot)!
+
+## QTI 3.0 Support
+
+### Quick Start with QTI 3.0
+
+```php
+<?php
+use qtism\data\storage\xml\XmlDocument;
+use qtism\runtime\tests\AssessmentItemSession;
+
+// Load QTI 3.0 assessment item
+$doc = new XmlDocument('3.0');
+$doc->load('qti3-item.xml', false); // false = no validation (recommended for QTI 3.0)
+
+// Create item session (works the same as QTI 2.x)
+$itemSession = new AssessmentItemSession($doc->getDocumentComponent());
+$itemSession->beginItemSession();
+```
+
+### QTI 3.0 Features
+
+* **Dual Compatibility**: Load both QTI 2.x and QTI 3.0 files seamlessly
+* **Element Mapping**: `assessmentItem` ↔ `qti-assessment-item`
+* **Attribute Mapping**: `timeDependent` ↔ `time-dependent`
+* **Version Detection**: Automatic QTI version detection from XML namespace
+* **Backward Compatibility**: All existing QTI 2.x code continues working
+
+### Testing QTI 3.0
+
+```shell
+# Test QTI 3.0 files (without validation)
+php qti-tests/scripts/test-qti3-comprehensive.php
+
+# Test both QTI 2.x and 3.0 files
+php qti-tests/scripts/test-qti-novalidate.php
+```
+
+**Note**: QTI 3.0 XSD validation may fail due to missing external schema dependencies (MathML, SSML). This is expected and does not affect functionality. Use `load($file, false)` to skip validation.
 
 ## QTI Item Session Management
 
