@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<qti-assessment-item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0"
+    xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd"
+    title="__rep_question-title" adaptive="false" time-dependent="false"
+    identifier="X53341-t01as01asi001">
+    <qti-response-declaration identifier="RESPONSE_1" cardinality="single" base-type="identifier">
+        <qti-correct-response>
+            <qti-value>X53341-t01as01asi001asic003</qti-value>
+        </qti-correct-response>
+        <qti-mapping default-value="0">
+            <qti-map-entry map-key="X53341-t01as01asi001asic003" mapped-value="1" />
+        </qti-mapping>
+    </qti-response-declaration>
+    <qti-response-declaration identifier="RESPONSE_2" cardinality="single" base-type="identifier">
+        <qti-correct-response>
+            <qti-value>X53341-t01as01asi001asic008</qti-value>
+        </qti-correct-response>
+        <qti-mapping default-value="0">
+            <qti-map-entry map-key="X53341-t01as01asi001asic008" mapped-value="1" />
+        </qti-mapping>
+    </qti-response-declaration>
+    <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="RESPONSE_1_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="RESPONSE_2_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MAXSCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>2</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="FEEDBACKBASIC" cardinality="single" base-type="identifier">
+        <qti-default-value>
+            <qti-value>empty</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MINSCORE" cardinality="single" base-type="float"
+        view="testConstructor">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-stylesheet href="styles/X53341-t01css001.css" type="text/css" />
+    <qti-item-body>
+        <div class="pane QTI-3-6">
+            <!--<rubricBlock
+            view="scorer"></rubricBlock>-->
+            <!--<rubricBlock
+            view="scorer"><div id="qti-sample-answer"></div></rubricBlock>-->
+    <qti-rubric-block view="candidate">
+                <qti-content-body>
+                    <object type="text/html" data="html/X53341-t01html001.html" />
+                </qti-content-body>
+            </qti-rubric-block>
+        </div>
+        <div class="pane QTI-3-6">
+            <object data_optional="true" data="media/X53341-question001-audio001.mp3"
+                type="audio/mpeg" />
+    <p><strong>1. </strong>This question has two parts. First,
+            answer Part A. Then answer Part B.</p>
+      <p><strong>Part A﻿ </strong>Who is the narrator of
+            "Scarlet Fever Summer"?</p>
+     <qti-choice-interaction response-identifier="RESPONSE_1"
+                shuffle="false" max-choices="1">
+                <qti-simple-choice identifier="X53341-t01as01asi001asic001"><strong>A. </strong>
+            Mother</qti-simple-choice>
+                <qti-simple-choice identifier="X53341-t01as01asi001asic002"><strong>B. </strong>
+            Father</qti-simple-choice>
+                <qti-simple-choice identifier="X53341-t01as01asi001asic003"><strong>C. </strong>
+            Miles</qti-simple-choice>
+                <qti-simple-choice identifier="X53341-t01as01asi001asic004"><strong>D. </strong>an
+            outside observer</qti-simple-choice>
+            </qti-choice-interaction>  <p><strong>Part
+            B﻿ </strong>Which sentence from paragraph 7 supports the answer to Part A? Click on the
+            sentence you choose.</p>
+     <qti-hottext-interaction response-identifier="RESPONSE_2"
+                shuffle="false" max-choices="1">
+                <table width="100%">
+                    <tbody>
+                        <tr>
+                            <td width="40%" valign="top">
+                                <p><qti-hottext identifier="X53341-t01as01asi001asic005">Father
+            painted the most beautiful of all his paintings. </qti-hottext><qti-hottext
+                                        identifier="X53341-t01as01asi001asic006">Every tree, every
+            current in the river, every cloud, and every inch of blue sky looked real. </qti-hottext><qti-hottext
+                                        identifier="X53341-t01as01asi001asic007">He painted a group
+            of young boys enjoying themselves by the river, playing ball, swimming, and fishing. </qti-hottext><qti-hottext
+                                        identifier="X53341-t01as01asi001asic008">I imagined myself
+            there with my brothers, shouting and laughing. </qti-hottext><qti-hottext
+                                        identifier="X53341-t01as01asi001asic009">And so the days
+            passed.</qti-hottext>
+                                </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </qti-hottext-interaction>
+        </div>
+    </qti-item-body>
+    <qti-response-processing>
+        <qti-response-condition>
+            <qti-response-if>
+                <qti-not>
+                    <qti-is-null>
+                        <qti-variable identifier="RESPONSE_1" />
+                    </qti-is-null>
+                </qti-not>
+                <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+                    <qti-sum>
+                        <qti-variable identifier="RESPONSE_1_SCORE" />
+                        <qti-map-response identifier="RESPONSE_1" />
+                    </qti-sum>
+                </qti-set-outcome-value>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X53341-t01as01asi001f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-if>
+        </qti-response-condition>
+        <qti-response-condition>
+            <qti-response-if>
+                <qti-and>
+                    <qti-match>
+                        <qti-variable identifier="RESPONSE_1" />
+                        <qti-correct identifier="RESPONSE_1" />
+                    </qti-match>
+                    <qti-not>
+                        <qti-is-null>
+                            <qti-variable identifier="RESPONSE_2" />
+                        </qti-is-null>
+                    </qti-not>
+                </qti-and>
+                <qti-set-outcome-value identifier="RESPONSE_2_SCORE">
+                    <qti-sum>
+                        <qti-variable identifier="RESPONSE_2_SCORE" />
+                        <qti-map-response identifier="RESPONSE_2" />
+                    </qti-sum>
+                </qti-set-outcome-value>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X53341-t01as01asi001f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-if>
+        </qti-response-condition>
+
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-sum>
+                <qti-variable identifier="RESPONSE_1_SCORE" />
+                <qti-variable identifier="RESPONSE_2_SCORE" />
+            </qti-sum>
+        </qti-set-outcome-value>
+    </qti-response-processing>
+    <!-- <testFeedback identifier="X53341-t01as01asi001f001" outcomeIdentifier="FEEDBACKBASIC"
+    showHide="show" title="Feedback">
+    </testFeedback> -->
+</qti-assessment-item>

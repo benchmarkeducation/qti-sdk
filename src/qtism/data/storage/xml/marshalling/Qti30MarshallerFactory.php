@@ -76,7 +76,44 @@ class Qti30MarshallerFactory extends MarshallerFactory
         $this->removeMappingEntry('templateBlock');
         $this->removeMappingEntry('templateInline');
         $this->removeMappingEntry('infoControl');
+        
+        // Keep QTI 2.x mappings for backward compatibility
+        // QTI 3.0 elements will be mapped to the same marshallers
 
+        // Add QTI 3.0 main elements
+        $this->addMappingEntry('qti-assessment-item', AssessmentItemMarshaller::class);
+        $this->addMappingEntry('qti-assessment-test', AssessmentTestMarshaller::class);
+        $this->addMappingEntry('qti-test-part', TestPartMarshaller::class);
+        $this->addMappingEntry('qti-assessment-section', AssessmentSectionMarshaller::class);
+        $this->addMappingEntry('qti-assessment-item-ref', AssessmentItemRefMarshaller::class);
+        $this->addMappingEntry('qti-response-declaration', ResponseDeclarationMarshaller::class);
+        $this->addMappingEntry('qti-outcome-declaration', OutcomeDeclarationMarshaller::class);
+        $this->addMappingEntry('qti-template-declaration', TemplateDeclarationMarshaller::class);
+        $this->addMappingEntry('qti-item-body', ItemBodyMarshaller::class);
+        $this->addMappingEntry('qti-response-processing', ResponseProcessingMarshaller::class);
+        $this->addMappingEntry('qti-template-processing', TemplateProcessingMarshaller::class);
+        $this->addMappingEntry('qti-modal-feedback', ModalFeedbackMarshaller::class);
+        $this->addMappingEntry('qti-stylesheet', StylesheetMarshaller::class);
+        $this->addMappingEntry('qti-correct-response', CorrectResponseMarshaller::class);
+        $this->addMappingEntry('qti-default-value', DefaultValueMarshaller::class);
+        $this->addMappingEntry('qti-value', ValueMarshaller::class);
+        
+        // Response processing elements
+        $this->addMappingEntry('qti-response-condition', ResponseConditionMarshaller::class);
+        $this->addMappingEntry('qti-response-if', ResponseIfMarshaller::class);
+        $this->addMappingEntry('qti-set-outcome-value', SetOutcomeValueMarshaller::class);
+        $this->addMappingEntry('qti-variable', VariableMarshaller::class);
+        $this->addMappingEntry('qti-sum', SumMarshaller::class);
+        $this->addMappingEntry('qti-map-response', MapResponseMarshaller::class);
+        $this->addMappingEntry('qti-not', NotMarshaller::class);
+        $this->addMappingEntry('qti-is-null', IsNullMarshaller::class);
+        $this->addMappingEntry('qti-and', AndMarshaller::class);
+        $this->addMappingEntry('qti-match', MatchMarshaller::class);
+        $this->addMappingEntry('qti-correct', CorrectMarshaller::class);
+        $this->addMappingEntry('qti-base-value', BaseValueMarshaller::class);
+        $this->addMappingEntry('qti-mapping', MappingMarshaller::class);
+        $this->addMappingEntry('qti-map-entry', MapEntryMarshaller::class);
+        
         $this->addMappingEntry('qti-associable-hotspot', HotspotMarshaller::class);
         $this->addMappingEntry('qti-gap', GapMarshaller::class);
         $this->addMappingEntry('qti-gap-img', GapChoiceMarshaller::class);

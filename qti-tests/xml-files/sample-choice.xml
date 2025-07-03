@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<assessmentItem xmlns="http://www.imsglobal.org/xsd/imsqti_v2p1"
+                identifier="choice_multiple" 
+                title="Composition of Water" 
+                adaptive="false" 
+                timeDependent="false">
+    <responseDeclaration identifier="RESPONSE" cardinality="multiple" baseType="identifier">
+        <correctResponse>
+            <value>H</value>
+            <value>O</value>
+        </correctResponse>
+    </responseDeclaration>
+    <outcomeDeclaration identifier="SCORE" cardinality="single" baseType="float">
+        <defaultValue>
+            <value>0</value>
+        </defaultValue>
+    </outcomeDeclaration>
+    <itemBody>
+        <div>
+            <p>What elements make up water?</p>
+            <choiceInteraction responseIdentifier="RESPONSE" shuffle="false" maxChoices="2">
+                <prompt>Select the elements:</prompt>
+                <simpleChoice identifier="H">Hydrogen</simpleChoice>
+                <simpleChoice identifier="He">Helium</simpleChoice>
+                <simpleChoice identifier="C">Carbon</simpleChoice>
+                <simpleChoice identifier="O">Oxygen</simpleChoice>
+            </choiceInteraction>
+        </div>
+    </itemBody>
+    <responseProcessing template="http://www.imsglobal.org/question/qti_v2p1/rptemplates/match_correct"/>
+</assessmentItem>

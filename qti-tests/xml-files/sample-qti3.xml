@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<qti-assessment-item xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0"
+                     identifier="qti3_choice" 
+                     title="QTI 3.0 Sample" 
+                     adaptive="false" 
+                     time-dependent="false">
+    <qti-response-declaration identifier="RESPONSE" cardinality="multiple" base-type="identifier">
+        <qti-correct-response>
+            <qti-value>A</qti-value>
+            <qti-value>C</qti-value>
+        </qti-correct-response>
+    </qti-response-declaration>
+    <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-item-body>
+        <div>
+            <p>Which are programming languages?</p>
+            <qti-choice-interaction response-identifier="RESPONSE" shuffle="false" max-choices="2">
+                <qti-prompt>Select programming languages:</qti-prompt>
+                <qti-simple-choice identifier="A">Python</qti-simple-choice>
+                <qti-simple-choice identifier="B">HTML</qti-simple-choice>
+                <qti-simple-choice identifier="C">JavaScript</qti-simple-choice>
+                <qti-simple-choice identifier="D">CSS</qti-simple-choice>
+            </qti-choice-interaction>
+        </div>
+    </qti-item-body>
+    <qti-response-processing template="http://www.imsglobal.org/question/qti_v3p0/rptemplates/match_correct"/>
+</qti-assessment-item>

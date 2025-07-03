@@ -51,7 +51,8 @@ class VariableDeclarationMarshaller extends Marshaller
         $this->setDOMElementAttribute($element, 'cardinality', Cardinality::getNameByConstant($component->getCardinality()));
 
         if ($component->getBaseType() != -1) {
-            $this->setDOMElementAttribute($element, 'baseType', BaseType::getNameByConstant($component->getBaseType()));
+            $baseTypeAttr = ($this->getVersion() === '3.0.0') ? 'base-type' : 'baseType';
+            $this->setDOMElementAttribute($element, $baseTypeAttr, BaseType::getNameByConstant($component->getBaseType()));
         }
 
         // deal with default value.
@@ -82,16 +83,18 @@ class VariableDeclarationMarshaller extends Marshaller
                     $object = new VariableDeclaration($identifier, -1, Cardinality::getConstantByName($cardinality));
 
                     // deal with baseType.
-                    $baseType = $this->getDOMElementAttributeAs($element, 'baseType');
+                    $baseTypeAttr = ($this->getVersion() === '3.0.0') ? 'base-type' : 'baseType';
+                    $baseType = $this->getDOMElementAttributeAs($element, $baseTypeAttr);
                     if (!empty($baseType)) {
                         $object->setBaseType(BaseType::getConstantByName($baseType));
                     }
 
                     // set up optional default value.
-                    $defaultValueElements = $element->getElementsByTagName('defaultValue');
-                    if ($defaultValueElements->length == 1) {
-                        $defaultValueElement = $defaultValueElements->item(0);
-                        $defaultValueMarshaller = $this->getMarshallerFactory()->createMarshaller($defaultValueElements->item(0), [$object->getBaseType()]);
+                    $defaultValueTag = ($this->getVersion() === '3.0.0') ? 'qti-default-value' : 'defaultValue';
+                    $defaultValueElements = $this->getChildElementsByTagName($element, $defaultValueTag);
+                    if (count($defaultValueElements) == 1) {
+                        $defaultValueElement = $defaultValueElements[0];
+                        $defaultValueMarshaller = $this->getMarshallerFactory()->createMarshaller($defaultValueElement, [$object->getBaseType()]);
 
                         $object->setDefaultValue($defaultValueMarshaller->unmarshall($defaultValueElement));
                     }

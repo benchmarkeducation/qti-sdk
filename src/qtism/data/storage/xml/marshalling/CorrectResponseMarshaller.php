@@ -119,12 +119,13 @@ class CorrectResponseMarshaller extends Marshaller
 
         // Retrieve the values ...
         $values = new ValueCollection();
-        $valueElements = $element->getElementsByTagName('value');
+        $valueTag = ($this->getVersion() === '3.0.0') ? 'qti-value' : 'value';
+        $valueElements = $this->getChildElementsByTagName($element, $valueTag);
 
-        if ($valueElements->length > 0) {
-            for ($i = 0; $i < $valueElements->length; $i++) {
-                $valueMarshaller = $this->getMarshallerFactory()->createMarshaller($valueElements->item($i), [$this->getBaseType()]);
-                $values[] = $valueMarshaller->unmarshall($valueElements->item($i));
+        if (count($valueElements) > 0) {
+            foreach ($valueElements as $valueElement) {
+                $valueMarshaller = $this->getMarshallerFactory()->createMarshaller($valueElement, [$this->getBaseType()]);
+                $values[] = $valueMarshaller->unmarshall($valueElement);
             }
 
             return new CorrectResponse($values, $interpretation);
@@ -140,5 +141,33 @@ class CorrectResponseMarshaller extends Marshaller
     public function getExpectedQtiClassName(): string
     {
         return 'correctResponse';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['correctResponse', 'qti-correct-response'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

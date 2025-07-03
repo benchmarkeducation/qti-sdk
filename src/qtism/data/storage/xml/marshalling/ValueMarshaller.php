@@ -104,7 +104,8 @@ class ValueMarshaller extends Marshaller
         }
 
         if ($component->isPartOfRecord() && $baseType >= 0) {
-            $this->setDOMElementAttribute($element, 'baseType', BaseType::getNameByConstant($baseType));
+            $baseTypeAttr = ($this->getVersion() === '3.0.0') ? 'base-type' : 'baseType';
+            $this->setDOMElementAttribute($element, $baseTypeAttr, BaseType::getNameByConstant($baseType));
         }
 
         return $element;
@@ -121,7 +122,8 @@ class ValueMarshaller extends Marshaller
     {
         $object = null;
 
-        if (($baseType = $this->getDOMElementAttributeAs($element, 'baseType', 'string')) !== null) {
+        $baseTypeAttr = ($this->getVersion() === '3.0.0') ? 'base-type' : 'baseType';
+        if (($baseType = $this->getDOMElementAttributeAs($element, $baseTypeAttr, 'string')) !== null) {
             // baseType attribute is set -> part of a record.
             $baseTypeCst = BaseType::getConstantByName($baseType);
             if ($baseTypeCst !== false) {
@@ -163,5 +165,33 @@ class ValueMarshaller extends Marshaller
     public function getExpectedQtiClassName(): string
     {
         return 'value';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['value', 'qti-value'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }
