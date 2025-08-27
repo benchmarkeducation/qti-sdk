@@ -12,9 +12,19 @@ use qtism\runtime\common\ResponseVariable;
 class QTI3ComprehensiveTest {
     
     private $testResults = [];
+    private $goldStandardPath;
+    
+    public function __construct() {
+        $this->goldStandardPath = __DIR__ . '/../xml-files/gold-standard';
+    }
     
     public function runAllTests() {
-        echo "=== QTI 3.0 Comprehensive Test Suite ===\n\n";
+        echo "=== QTI 3.0 Gold Standard Test Suite ===\n\n";
+        
+        if (!is_dir($this->goldStandardPath)) {
+            echo "✗ Gold standard directory not found: {$this->goldStandardPath}\n";
+            return;
+        }
         
         $this->testManifest();
         $this->testAssessmentTest();
@@ -24,10 +34,10 @@ class QTI3ComprehensiveTest {
     }
     
     private function testManifest() {
-        echo "1. Testing QTI 3.0 Manifest (Generic XML)\n";
+        echo "1. Testing QTI 3.0 Gold Standard Manifest\n";
         echo "------------------------------------------\n";
         
-        $manifestFile = __DIR__ . '/../xml-files/imsmanifest-qti3.xml';
+        $manifestFile = $this->goldStandardPath . '/imsmanifest.xml';
         
         try {
             // Load as generic XML since QTI-SDK doesn't have manifest marshaller
@@ -61,10 +71,10 @@ class QTI3ComprehensiveTest {
     }
     
     private function testAssessmentTest() {
-        echo "2. Testing QTI 3.0 Assessment Test\n";
-        echo "----------------------------------\n";
+        echo "2. Testing QTI 3.0 Gold Standard Test\n";
+        echo "------------------------------------\n";
         
-        $testFile = __DIR__ . '/../xml-files/sample-qti3-test.xml';
+        $testFile = $this->goldStandardPath . '/test.xml';
         
         try {
             $doc = new XmlDocument('3.0');
@@ -105,10 +115,10 @@ class QTI3ComprehensiveTest {
     }
     
     private function testAssessmentItem() {
-        echo "3. Testing QTI 3.0 Assessment Item\n";
-        echo "----------------------------------\n";
+        echo "3. Testing QTI 3.0 Gold Standard Item (Inline Choice)\n";
+        echo "----------------------------------------------------\n";
         
-        $itemFile = __DIR__ . '/../xml-files/sample-qti3-simple.xml';
+        $itemFile = $this->goldStandardPath . '/item.xml';
         
         try {
             $doc = new XmlDocument('3.0');
@@ -127,8 +137,10 @@ class QTI3ComprehensiveTest {
             echo "✓ Outcome declarations: {$outcomeDecls->length}\n";
             
             // Check interactions
-            $interactions = $root->getElementsByTagName('qti-choice-interaction');
-            echo "✓ Choice interactions: {$interactions->length}\n";
+            $choiceInteractions = $root->getElementsByTagName('qti-choice-interaction');
+            $inlineChoiceInteractions = $root->getElementsByTagName('qti-inline-choice-interaction');
+            echo "✓ Choice interactions: {$choiceInteractions->length}\n";
+            echo "✓ Inline choice interactions: {$inlineChoiceInteractions->length}\n";
             
             // Test item session
             $this->testItemSession($doc);
@@ -157,10 +169,10 @@ class QTI3ComprehensiveTest {
             if ($responseVars->count() > 0) {
                 $itemSession->beginAttempt();
                 
-                // Create response
+                // Create response for inline choice (correct answer)
                 $responses = new State();
                 $responseVar = $responseVars->getArrayCopy()[0];
-                $responses[$responseVar->getIdentifier()] = new QtiIdentifier('choice_a');
+                $responses[$responseVar->getIdentifier()] = new QtiIdentifier('verb');
                 
                 $itemSession->endAttempt($responses);
                 
