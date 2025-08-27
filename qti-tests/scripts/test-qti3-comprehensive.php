@@ -182,9 +182,21 @@ class QTI3ComprehensiveTest {
                 $responseValue = $itemSession->getVariable($responseVar->getIdentifier());
                 echo "✓ Response value: {$responseValue->getValue()}\n";
                 
-                $scoreVar = $itemSession->getVariable('SCORE');
-                if ($scoreVar) {
-                    echo "✓ Score: {$scoreVar->getValue()}\n";
+                // Check for built-in variables
+                try {
+                    $numAttempts = $itemSession->getVariable('numAttempts');
+                    echo "✓ Number of attempts: {$numAttempts->getValue()}\n";
+                } catch (Exception $e) {
+                    echo "! Built-in variable 'numAttempts' not available\n";
+                }
+                
+                try {
+                    $scoreVar = $itemSession->getVariable('SCORE');
+                    if ($scoreVar) {
+                        echo "✓ Score: {$scoreVar->getValue()}\n";
+                    }
+                } catch (Exception $e) {
+                    echo "! Score variable not available (no response processing)\n";
                 }
                 
                 $itemSession->endItemSession();

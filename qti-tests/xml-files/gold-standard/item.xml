@@ -41,6 +41,7 @@
         </div>
     </qti-item-body>
     
+    <!-- Response processing temporarily commented out due to missing QTI 3.0 marshallers
     <qti-response-processing>
         <qti-response-condition>
             <qti-response-if>
@@ -77,7 +78,9 @@
             </qti-response-else>
         </qti-response-condition>
     </qti-response-processing>
+    -->
     
+    <!-- Modal feedback temporarily commented out due to missing QTI 3.0 marshallers
     <qti-modal-feedback outcome-identifier="FEEDBACK" identifier="correct" show-hide="show">
         <p><strong>Correct!</strong> "Were" is the correct plural form of the verb "to be" that agrees with the plural subject "students".</p>
     </qti-modal-feedback>
@@ -89,5 +92,6 @@
     <qti-modal-feedback outcome-identifier="FEEDBACK" identifier="incorrect" show-hide="show">
         <p><strong>Incorrect.</strong> The correct answer is "were" because it agrees with the plural subject "students".</p>
     </qti-modal-feedback>
+    -->
     
 </qti-assessment-item>
