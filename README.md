@@ -86,12 +86,19 @@ $itemSession->beginItemSession();
 ### Testing QTI 3.0
 
 ```shell
-# Test QTI 3.0 files (without validation)
+# Test QTI 3.0 Gold Standard Package
 php qti-tests/scripts/test-qti3-comprehensive.php
-
-# Test both QTI 2.x and 3.0 files
-php qti-tests/scripts/test-qti-novalidate.php
 ```
+
+#### QTI 3.0 Gold Standard Package
+
+The SDK includes a comprehensive QTI 3.0 test package located at `qti-tests/xml-files/gold-standard/` containing:
+
+- **imsmanifest.xml** - IMS Content Package manifest
+- **test.xml** - QTI 3.0 assessment test with outcome processing
+- **item.xml** - QTI 3.0 assessment item with inline choice interaction
+
+This package demonstrates QTI 3.0 features and serves as a reference for creating QTI 3.0 content.
 
 **Note**: QTI 3.0 XSD validation may fail due to missing external schema dependencies (MathML, SSML). This is expected and does not affect functionality. Use `load($file, false)` to skip validation.
 
