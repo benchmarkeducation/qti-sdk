@@ -22,7 +22,6 @@
         
     </qti-test-part>
 
-    <!-- Outcome processing temporarily commented out due to missing QTI 3.0 marshallers
     <qti-outcome-processing>
         <qti-set-outcome-value identifier="TOTAL_SCORE">
             <qti-sum>
@@ -42,5 +41,4 @@
             </qti-outcome-if>
         </qti-outcome-condition>
     </qti-outcome-processing>
-    -->
 </qti-assessment-test>
