@@ -42,9 +42,11 @@ class BaseValueMarshaller extends Marshaller
      */
     protected function marshall(QtiComponent $component): DOMElement
     {
-        $element = $this->createElement($component);
+        $elementName = ($this->getVersion() === '3.0.0') ? 'qti-base-value' : 'baseValue';
+        $element = $this->createElement($component, $elementName);
 
-        $this->setDOMElementAttribute($element, 'baseType', BaseType::getNameByConstant($component->getBaseType()));
+        $baseTypeAttr = ($this->getVersion() === '3.0.0') ? 'base-type' : 'baseType';
+        $this->setDOMElementAttribute($element, $baseTypeAttr, BaseType::getNameByConstant($component->getBaseType()));
         self::setDOMElementValue($element, $component->getValue());
 
         return $element;
@@ -59,7 +61,8 @@ class BaseValueMarshaller extends Marshaller
      */
     protected function unmarshall(DOMElement $element): BaseValue
     {
-        if (($baseType = $this->getDOMElementAttributeAs($element, 'baseType', 'string')) !== null) {
+        $baseTypeAttr = ($this->getVersion() === '3.0.0') ? 'base-type' : 'baseType';
+        if (($baseType = $this->getDOMElementAttributeAs($element, $baseTypeAttr, 'string')) !== null) {
             $value = $element->nodeValue;
             $baseTypeCst = BaseType::getConstantByName($baseType);
 
@@ -80,6 +83,34 @@ class BaseValueMarshaller extends Marshaller
      */
     public function getExpectedQtiClassName(): string
     {
-        return 'baseValue';
+        return '';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['baseValue', 'qti-base-value'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

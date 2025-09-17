@@ -43,14 +43,16 @@ class ResponseProcessingMarshaller extends Marshaller
      */
     protected function marshall(QtiComponent $component): DOMElement
     {
-        $element = $this->createElement($component);
+        $elementName = ($this->getVersion() === '3.0.0') ? 'qti-response-processing' : 'responseProcessing';
+        $element = $this->createElement($component, $elementName);
 
         if ($component->hasTemplate() === true) {
             $this->setDOMElementAttribute($element, 'template', $component->getTemplate());
         }
 
         if ($component->hasTemplateLocation() === true) {
-            $this->setDOMElementAttribute($element, 'templateLocation', $component->getTemplateLocation());
+            $templateLocationAttr = ($this->getVersion() === '3.0.0') ? 'template-location' : 'templateLocation';
+            $this->setDOMElementAttribute($element, $templateLocationAttr, $component->getTemplateLocation());
         }
 
         foreach ($component->getResponseRules() as $responseRule) {
@@ -92,7 +94,8 @@ class ResponseProcessingMarshaller extends Marshaller
             $object->setTemplate($template);
         }
 
-        if (($templateLocation = $this->getDOMElementAttributeAs($element, 'templateLocation')) !== null) {
+        $templateLocationAttr = ($this->getVersion() === '3.0.0') ? 'template-location' : 'templateLocation';
+        if (($templateLocation = $this->getDOMElementAttributeAs($element, $templateLocationAttr)) !== null) {
             $object->setTemplateLocation($templateLocation);
         }
 
@@ -104,6 +107,34 @@ class ResponseProcessingMarshaller extends Marshaller
      */
     public function getExpectedQtiClassName(): string
     {
-        return 'responseProcessing';
+        return '';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['responseProcessing', 'qti-response-processing'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

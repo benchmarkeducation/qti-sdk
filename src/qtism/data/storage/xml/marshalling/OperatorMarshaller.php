@@ -146,22 +146,24 @@ class OperatorMarshaller extends RecursiveMarshaller
         // Some exceptions applies on instanciation e.g. the And operator is named
         // AndOperator because of PHP reserved words restriction.
 
-        if ($element->localName === 'and') {
+        $elementName = $this->mapQti30ElementName($element->localName);
+        
+        if ($elementName === 'and') {
             $className = AndOperator::class;
-        } elseif ($element->localName === 'or') {
+        } elseif ($elementName === 'or') {
             $className = OrOperator::class;
-        } elseif ($element->localName === 'not') {
+        } elseif ($elementName === 'not') {
             $className = NotOperator::class;
-        } elseif ($element->localName === 'match') {
+        } elseif ($elementName === 'match') {
             $className = MatchOperator::class;
         } else {
-            $className = 'qtism\\data\\expressions\\operators\\' . ucfirst($element->localName);
+            $className = 'qtism\\data\\expressions\\operators\\' . ucfirst($elementName);
         }
 
         $class = new ReflectionClass($className);
         $params = [$children];
 
-        if ($element->localName === 'customOperator') {
+        if ($elementName === 'customOperator') {
             // Retrieve XML content as a string.
             $frag = $element->ownerDocument->createDocumentFragment();
             $element = $element->cloneNode(true);
@@ -276,5 +278,13 @@ class OperatorMarshaller extends RecursiveMarshaller
     public function getExpectedQtiClassName(): string
     {
         return '';
+    }
+    
+    private function mapQti30ElementName(string $elementName): string
+    {
+        if (strpos($elementName, 'qti-') === 0) {
+            return substr($elementName, 4); // Remove 'qti-' prefix
+        }
+        return $elementName;
     }
 }

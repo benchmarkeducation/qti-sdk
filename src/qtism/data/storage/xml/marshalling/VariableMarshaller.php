@@ -40,13 +40,15 @@ class VariableMarshaller extends Marshaller
      */
     protected function marshall(QtiComponent $component): DOMElement
     {
-        $element = $this->createElement($component);
+        $elementName = ($this->getVersion() === '3.0.0') ? 'qti-variable' : 'variable';
+        $element = $this->createElement($component, $elementName);
 
         $this->setDOMElementAttribute($element, 'identifier', $component->getIdentifier());
 
         $weightIdentifier = $component->getWeightIdentifier();
         if (!empty($weightIdentifier)) {
-            $this->setDOMElementAttribute($element, 'weightIdentifier', $weightIdentifier);
+            $weightIdentifierAttr = ($this->getVersion() === '3.0.0') ? 'weight-identifier' : 'weightIdentifier';
+            $this->setDOMElementAttribute($element, $weightIdentifierAttr, $weightIdentifier);
         }
 
         return $element;
@@ -64,7 +66,8 @@ class VariableMarshaller extends Marshaller
         if (($identifier = $this->getDOMElementAttributeAs($element, 'identifier')) !== null) {
             $object = new Variable($identifier);
 
-            if (($weightIdentifier = $this->getDOMElementAttributeAs($element, 'weightIdentifier')) !== null) {
+            $weightIdentifierAttr = ($this->getVersion() === '3.0.0') ? 'weight-identifier' : 'weightIdentifier';
+            if (($weightIdentifier = $this->getDOMElementAttributeAs($element, $weightIdentifierAttr)) !== null) {
                 $object->setWeightIdentifier($weightIdentifier);
             }
 
@@ -80,6 +83,34 @@ class VariableMarshaller extends Marshaller
      */
     public function getExpectedQtiClassName(): string
     {
-        return 'variable';
+        return '';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['variable', 'qti-variable'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

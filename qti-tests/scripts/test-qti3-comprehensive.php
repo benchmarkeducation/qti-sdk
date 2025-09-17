@@ -182,6 +182,26 @@ class QTI3ComprehensiveTest {
                 $responseValue = $itemSession->getVariable($responseVar->getIdentifier());
                 echo "✓ Response value: {$responseValue->getValue()}\n";
                 
+                // Test scoring functionality
+                $scoreVar = $itemSession->getVariable('SCORE');
+                if ($scoreVar !== null) {
+                    echo "✓ SCORE variable: {$scoreVar->getValue()}\n";
+                    if ($scoreVar->getValue() == 1.0) {
+                        echo "✓ Correct answer scored properly (1.0 points)\n";
+                    } else {
+                        echo "✗ Scoring failed - expected 1.0, got: {$scoreVar->getValue()}\n";
+                    }
+                } else {
+                    echo "✗ SCORE variable not found - response processing not working\n";
+                }
+                
+                $feedbackVar = $itemSession->getVariable('FEEDBACK');
+                if ($feedbackVar !== null) {
+                    echo "✓ FEEDBACK variable: {$feedbackVar->getValue()}\n";
+                } else {
+                    echo "✗ FEEDBACK variable not found\n";
+                }
+                
                 $itemSession->endItemSession();
                 echo "✓ Item session ended\n";
             }

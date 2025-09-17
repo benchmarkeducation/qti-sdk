@@ -111,7 +111,9 @@ class Qti30MarshallerFactory extends MarshallerFactory
         
         // Response processing elements
         $this->addMappingEntry('qti-response-condition', ResponseConditionMarshaller::class);
-        $this->addMappingEntry('qti-response-if', ResponseIfMarshaller::class);
+        $this->addMappingEntry('qti-response-if', ResponseControlMarshaller::class);
+        $this->addMappingEntry('qti-response-else-if', ResponseControlMarshaller::class);
+        $this->addMappingEntry('qti-response-else', ResponseControlMarshaller::class);
         $this->addMappingEntry('qti-set-outcome-value', SetOutcomeValueMarshaller::class);
         $this->addMappingEntry('qti-variable', VariableMarshaller::class);
         $this->addMappingEntry('qti-sum', OperatorMarshaller::class);

@@ -40,7 +40,8 @@ class CorrectMarshaller extends Marshaller
      */
     protected function marshall(QtiComponent $component): DOMElement
     {
-        $element = $this->createElement($component);
+        $elementName = ($this->getVersion() === '3.0.0') ? 'qti-correct' : 'correct';
+        $element = $this->createElement($component, $elementName);
 
         $this->setDOMElementAttribute($element, 'identifier', $component->getIdentifier());
 
@@ -69,6 +70,34 @@ class CorrectMarshaller extends Marshaller
      */
     public function getExpectedQtiClassName(): string
     {
-        return 'correct';
+        return '';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['correct', 'qti-correct'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }

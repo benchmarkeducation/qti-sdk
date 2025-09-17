@@ -58,17 +58,20 @@ class ResponseControlMarshaller extends RecursiveMarshaller
         if (count($expressionElts) > 0) {
             $marshaller = $this->getMarshallerFactory()->createMarshaller($expressionElts[0]);
             $expression = $marshaller->unmarshall($expressionElts[0]);
-        } elseif (($element->localName == 'responseIf' || $element->localName == 'responseElseIf') && count($expressionElts) == 0) {
+        } elseif ((in_array($element->localName, ['responseIf', 'qti-response-if', 'responseElseIf', 'qti-response-else-if'])) && count($expressionElts) == 0) {
             $msg = "A '" . $element->localName . "' must contain an 'expression' element. None found at line " . $element->getLineNo() . "'.";
             throw new UnmarshallingException($msg, $element);
         }
 
-        if ($element->localName == 'responseIf' || $element->localName == 'responseElseIf') {
-            $className = 'qtism\\data\\rules\\' . ucfirst($element->localName);
+        $elementName = $element->localName;
+        $mappedName = $this->mapElementName($elementName);
+        
+        if (in_array($elementName, ['responseIf', 'qti-response-if', 'responseElseIf', 'qti-response-else-if'])) {
+            $className = 'qtism\\data\\rules\\' . ucfirst($mappedName);
             $class = new ReflectionClass($className);
             $object = Reflection::newInstance($class, [$expression, $children]);
         } else {
-            $className = 'qtism\\data\\rules\\' . ucfirst($element->localName);
+            $className = 'qtism\\data\\rules\\' . ucfirst($mappedName);
             $class = new ReflectionClass($className);
             $object = Reflection::newInstance($class, [$children]);
         }
@@ -85,7 +88,8 @@ class ResponseControlMarshaller extends RecursiveMarshaller
      */
     protected function marshallChildrenKnown(QtiComponent $component, array $elements): DOMElement
     {
-        $element = $this->createElement($component);
+        $elementName = $this->getQti30ElementName($component);
+        $element = $this->createElement($component, $elementName);
 
         if ($component instanceof ResponseIf || $component instanceof ResponseElseIf) {
             $marshaller = $this->getMarshallerFactory()->createMarshaller($component->getExpression());
@@ -129,12 +133,19 @@ class ResponseControlMarshaller extends RecursiveMarshaller
      */
     protected function getChildrenElements(DOMElement $element): array
     {
-        return $this->getChildElementsByTagName($element, [
+        $tags = ($this->getVersion() === '3.0.0') ? [
+            'qti-exit-response',
+            'qti-lookup-outcome-value',
+            'qti-set-outcome-value',
+            'qti-response-condition',
+        ] : [
             'exitResponse',
             'lookupOutcomeValue',
             'setOutcomeValue',
             'responseCondition',
-        ]);
+        ];
+        
+        return $this->getChildElementsByTagName($element, $tags);
     }
 
     /**
@@ -161,5 +172,34 @@ class ResponseControlMarshaller extends RecursiveMarshaller
     public function getExpectedQtiClassName(): string
     {
         return '';
+    }
+    
+    private function mapElementName(string $elementName): string
+    {
+        $mapping = [
+            'qti-response-if' => 'responseIf',
+            'qti-response-else-if' => 'responseElseIf', 
+            'qti-response-else' => 'responseElse'
+        ];
+        
+        return $mapping[$elementName] ?? $elementName;
+    }
+    
+    private function getQti30ElementName(QtiComponent $component): string
+    {
+        if ($this->getVersion() !== '3.0.0') {
+            return null;
+        }
+        
+        $className = get_class($component);
+        $shortName = substr($className, strrpos($className, '\\') + 1);
+        
+        $mapping = [
+            'ResponseIf' => 'qti-response-if',
+            'ResponseElseIf' => 'qti-response-else-if',
+            'ResponseElse' => 'qti-response-else'
+        ];
+        
+        return $mapping[$shortName] ?? null;
     }
 }
