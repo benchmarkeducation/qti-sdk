@@ -86,7 +86,8 @@ class ResponseConditionMarshaller extends RecursiveMarshaller
      */
     protected function marshallChildrenKnown(QtiComponent $component, array $elements): DOMElement
     {
-        $element = $this->createElement($component);
+        $elementName = ($this->getVersion() === '3.0.0') ? 'qti-response-condition' : 'responseCondition';
+        $element = $this->createElement($component, $elementName);
 
         foreach ($elements as $elt) {
             $element->appendChild($elt);
@@ -101,7 +102,8 @@ class ResponseConditionMarshaller extends RecursiveMarshaller
      */
     protected function isElementFinal(DOMNode $element): bool
     {
-        $exclusion = ['responseIf', 'responseElseIf', 'responseElse', 'responseCondition'];
+        $exclusion = ['responseIf', 'responseElseIf', 'responseElse', 'responseCondition',
+                     'qti-response-if', 'qti-response-else-if', 'qti-response-else', 'qti-response-condition'];
 
         return !in_array($element->localName, $exclusion);
     }
@@ -124,7 +126,15 @@ class ResponseConditionMarshaller extends RecursiveMarshaller
      */
     protected function getChildrenElements(DOMElement $element): array
     {
-        return $this->getChildElementsByTagName($element, [
+        $tags = ($this->getVersion() === '3.0.0') ? [
+            'qti-response-if',
+            'qti-response-else-if', 
+            'qti-response-else',
+            'qti-exit-response',
+            'qti-lookup-outcome-value',
+            'qti-set-outcome-value',
+            'qti-response-condition',
+        ] : [
             'responseIf',
             'responseElseIf',
             'responseElse',
@@ -132,7 +142,9 @@ class ResponseConditionMarshaller extends RecursiveMarshaller
             'lookupOutcomeValue',
             'setOutcomeValue',
             'responseCondition',
-        ]);
+        ];
+        
+        return $this->getChildElementsByTagName($element, $tags);
     }
 
     /**
@@ -166,7 +178,7 @@ class ResponseConditionMarshaller extends RecursiveMarshaller
      */
     protected function createCollection(DOMElement $currentNode): QtiComponentCollection
     {
-        if ($currentNode->localName != 'responseCondition') {
+        if (!in_array($currentNode->localName, ['responseCondition', 'qti-response-condition'])) {
             return new ResponseRuleCollection();
         } else {
             return new QtiComponentCollection();

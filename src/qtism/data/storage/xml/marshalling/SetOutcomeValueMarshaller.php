@@ -42,7 +42,8 @@ class SetOutcomeValueMarshaller extends Marshaller
      */
     protected function marshall(QtiComponent $component): DOMElement
     {
-        $element = $this->createElement($component);
+        $elementName = ($this->getVersion() === '3.0.0') ? 'qti-set-outcome-value' : 'setOutcomeValue';
+        $element = $this->createElement($component, $elementName);
         $marshaller = $this->getMarshallerFactory()->createMarshaller($component->getExpression());
         $element->appendChild($marshaller->marshall($component->getExpression()));
 
@@ -82,6 +83,34 @@ class SetOutcomeValueMarshaller extends Marshaller
      */
     public function getExpectedQtiClassName(): string
     {
-        return 'setOutcomeValue';
+        return '';
+    }
+
+    /**
+     * Override to handle both QTI 2.x and 3.0 element names
+     */
+    protected function checkUnmarshallerImplementation($element): void
+    {
+        if (!$element instanceof \DOMElement) {
+            $nodeName = $this->getElementName($element);
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+        
+        $expectedNames = ['setOutcomeValue', 'qti-set-outcome-value'];
+        if (!in_array($element->localName, $expectedNames)) {
+            $nodeName = $element->localName;
+            throw new \RuntimeException("No Marshaller implementation found while unmarshalling element '{$nodeName}'.");
+        }
+    }
+
+    private function getElementName($element): string
+    {
+        if ($element instanceof \DOMElement) {
+            return $element->localName;
+        }
+        if (is_object($element)) {
+            return get_class($element);
+        }
+        return $element;
     }
 }
