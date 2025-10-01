@@ -53,7 +53,17 @@ class ResponseControlMarshaller extends RecursiveMarshaller
      */
     protected function unmarshallChildrenKnown(DOMElement $element, QtiComponentCollection $children): QtiComponent
     {
-        $expressionElts = $this->getChildElementsByTagName($element, Expression::getExpressionClassNames());
+        $expressionNames = Expression::getExpressionClassNames();
+        if ($this->getVersion() === '3.0.0') {
+            $qti3Names = [];
+            foreach ($expressionNames as $name) {
+                $qti3Names[] = 'qti-' . $name;
+            }
+            $expressionNames = array_merge($expressionNames, $qti3Names);
+        }
+        
+        $expressionElts = $this->getChildElementsByTagName($element, $expressionNames);
+        $expression = null;
 
         if (count($expressionElts) > 0) {
             $marshaller = $this->getMarshallerFactory()->createMarshaller($expressionElts[0]);
@@ -109,11 +119,11 @@ class ResponseControlMarshaller extends RecursiveMarshaller
      */
     protected function isElementFinal(DOMNode $element): bool
     {
-        return in_array($element->localName, array_merge([
-            'exitResponse',
-            'lookupOutcomeValue',
-            'setOutcomeValue',
-        ]));
+        return in_array($element->localName, [
+            'exitResponse', 'qti-exit-response',
+            'lookupOutcomeValue', 'qti-lookup-outcome-value', 
+            'setOutcomeValue', 'qti-set-outcome-value'
+        ]);
     }
 
     /**

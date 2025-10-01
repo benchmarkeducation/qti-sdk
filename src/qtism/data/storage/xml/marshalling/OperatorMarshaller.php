@@ -229,7 +229,8 @@ class OperatorMarshaller extends RecursiveMarshaller
      */
     protected function isElementFinal(DOMNode $element): bool
     {
-        return !in_array($element->localName, static::getOperators());
+        $elementName = $this->mapQti30ElementName($element->localName);
+        return !in_array($elementName, static::getOperators());
     }
 
     /**
@@ -247,7 +248,9 @@ class OperatorMarshaller extends RecursiveMarshaller
      */
     protected function getChildrenElements(DOMElement $element): array
     {
-        return $this->getChildElementsByTagName($element, array_merge(self::getOperators(), self::getExpressions()));
+        $qti2Names = array_merge(self::getOperators(), self::getExpressions());
+        $qti3Names = array_map(function($name) { return 'qti-' . $name; }, $qti2Names);
+        return $this->getChildElementsByTagName($element, array_merge($qti2Names, $qti3Names));
     }
 
     /**

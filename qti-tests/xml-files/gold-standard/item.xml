@@ -40,7 +40,6 @@
             <p class="instruction">Choose the verb that agrees with the subject "students".</p>
         </div>
     </qti-item-body>
-    <!-- Response processing now enabled with QTI 3.0 marshallers -->
     <qti-response-processing>
         <qti-response-condition>
             <qti-response-if>
@@ -55,18 +54,6 @@
                     <qti-base-value base-type="identifier">correct</qti-base-value>
                 </qti-set-outcome-value>
             </qti-response-if>
-            <qti-response-else-if>
-                <qti-match>
-                    <qti-variable identifier="RESPONSE" />
-                    <qti-base-value base-type="identifier">choice_was</qti-base-value>
-                </qti-match>
-                <qti-set-outcome-value identifier="SCORE">
-                    <qti-base-value base-type="float">0.0</qti-base-value>
-                </qti-set-outcome-value>
-                <qti-set-outcome-value identifier="FEEDBACK">
-                    <qti-base-value base-type="identifier">singular_error</qti-base-value>
-                </qti-set-outcome-value>
-            </qti-response-else-if>
             <qti-response-else>
                 <qti-set-outcome-value identifier="SCORE">
                     <qti-base-value base-type="float">0.0</qti-base-value>
