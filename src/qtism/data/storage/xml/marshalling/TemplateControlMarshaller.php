@@ -56,7 +56,12 @@ class TemplateControlMarshaller extends RecursiveMarshaller
      */
     protected function unmarshallChildrenKnown(DOMElement $element, QtiComponentCollection $children): QtiComponent
     {
-        $expressionElts = $this->getChildElementsByTagName($element, Expression::getExpressionClassNames());
+        $expressionNames = Expression::getExpressionClassNames();
+        if ($this->getVersion() === '3.0.0') {
+            $qti3Names = array_map(function($name) { return 'qti-' . $name; }, $expressionNames);
+            $expressionNames = array_merge($expressionNames, $qti3Names);
+        }
+        $expressionElts = $this->getChildElementsByTagName($element, $expressionNames);
 
         if (count($expressionElts) > 0) {
             $marshaller = $this->getMarshallerFactory()->createMarshaller($expressionElts[0]);
