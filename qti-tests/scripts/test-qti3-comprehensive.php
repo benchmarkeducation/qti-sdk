@@ -193,7 +193,6 @@ class QTI3ComprehensiveTest {
                 $itemSession->endAttempt($responses);
                 
                 // Check results
-                $responseValue = $itemSession->getVariable('RESPONSE')->getValue();
                 $scoreValue = $itemSession->getVariable('SCORE')->getValue();
                 $feedbackValue = $itemSession->getVariable('FEEDBACK')->getValue();
                 
