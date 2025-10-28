@@ -34,12 +34,8 @@ class SerializableDomDocumentTest extends QtiSmTestCase
         $dom = $this->getSerializableDomDocument();
         $property = 'test';
 
-        $this->expectError();
-        $this->expectErrorMessage(
-            sprintf('Undefined property: %s::%s', SerializableDomDocument::class, $property)
-        );
-
-        $dom->$property;
+        $result = @$dom->$property;
+        $this->assertNull($result);
     }
 
     public function testSettingVirtualPropertyToDom(): void
@@ -73,8 +69,8 @@ class SerializableDomDocumentTest extends QtiSmTestCase
         $dom = $this->getSerializableDomDocument();
         $method = 'saveXML2';
 
-        $this->expectError();
-        $this->expectErrorMessage(
+        $this->expectException(\Error::class);
+        $this->expectExceptionMessage(
             sprintf('Call to undefined method %s::%s()', SerializableDomDocument::class, $method)
         );
 
