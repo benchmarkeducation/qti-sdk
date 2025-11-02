@@ -1,0 +1,38 @@
+.underline { text-decoration: underline; }
+.box { border: 1px solid black;padding: 1rem; }
+h1 { text-align: center; margin: 1em 0 !important; }
+.passageContent ol li, .passageContent p { margin: 0 0 2em 0 !important; }
+.pane .pane-container p [binarydomtreeindex] { margin: 0 0 1em 0; } 
+.audio-player { margin: 0 0 1em 0; }
+.img-pad { padding: 10px 20px; }
+.center { text-align: center; }
+.pull-right {float: right;}
+.pull-left {float: left;}
+.w10 {width: 10%;}
+.w20 {width: 20%;}
+.w30 {width: 30%;}
+.w40 {width: 40%;}
+.w50 {width: 50%;}
+.w60 {width: 60%;}
+.w70 {width: 70%;}
+.w80 {width: 80%;}
+.w90 {width: 90%;}
+.w100 {width: 100%;}
+.passageContent p.nomargin { margin: 0 !important; }
+.passageContent p.poem_indent { margin-left: 45px !important; }
+.passageContent p.poem_numline {text-indent: -45px; margin-left: 45px !important;}
+.passageContent p.nl5:before {content: "5\2003";}
+.passageContent p.nl10:before {content: "10\00A0";}
+.passageContent p.nl15:before {content: "15\00A0";}
+.passageContent p.nl20:before {content: "20\00A0";}
+.passageContent p.nl25:before {content: "25\00A0";}
+.passageContent p.nl30:before {content: "30\00A0";}
+.passageContent p.nl35:before {content: "35\00A0";}
+.passageContent p.nl40:before {content: "40\00A0";}
+.passageContent p.nl45:before {content: "45\00A0";}
+.passageContent p.nl50:before {content: "50\00A0";}
+.passageContent p.nl55:before {content: "55\00A0";}
+.passageContent p.nl60:before {content: "60\00A0";}
+.passageContent p.nl65:before {content: "65\00A0";}
+.passageContent p.nl70:before {content: "70\00A0";}
+.blank {letter-spacing: 0;}

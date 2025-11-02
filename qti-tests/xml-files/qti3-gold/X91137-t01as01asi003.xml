@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<qti-assessment-item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" title="Question-3" adaptive="false" time-dependent="false" identifier="X91137-t01as01asi003">
+    <qti-response-declaration identifier="RESPONSE_1" cardinality="multiple" base-type="identifier">
+        <qti-correct-response>
+            <qti-value>X91137-t01as01asi003asic003</qti-value>
+            <qti-value>X91137-t01as01asi003asic004</qti-value>
+        </qti-correct-response>
+        <qti-mapping default-value="0">
+            <qti-map-entry map-key="X91137-t01as01asi003asic003" mapped-value="1" />
+            <qti-map-entry map-key="X91137-t01as01asi003asic004" mapped-value="1" />
+        </qti-mapping>
+    </qti-response-declaration>
+    <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="RESPONSE_1_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MAXSCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>2</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="FEEDBACKBASIC" cardinality="single" base-type="identifier">
+        <qti-default-value>
+            <qti-value>empty</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MINSCORE" cardinality="single" base-type="float" view="testConstructor">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-stylesheet href="styles/X91137-t01css001.css" type="text/css" />
+    <qti-item-body>
+        <qti-rubric-block view="candidate" use="ext:passage">
+            <qti-content-body>
+                <object type="text/html" data="html/X91137-t01html001.html" />
+            </qti-content-body>
+        </qti-rubric-block>
+        <div class="pane QTI-3-6">
+        </div>
+        <div class="pane QTI-3-6">
+            <audio>
+                <source src="media/X91137-question003-audio001.mp3" type="audio/mpeg" />
+            </audio>
+            <p>
+                <strong>3. </strong>
+                Based on the map, select
+                <strong>two</strong>
+                states that were in the Dust Bowl.
+            </p>
+            <qti-choice-interaction response-identifier="RESPONSE_1" shuffle="false" max-choices="2" min-choices="1">
+                <qti-simple-choice identifier="X91137-t01as01asi003asic001">Minnesota</qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi003asic002">Iowa</qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi003asic003">Kansas</qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi003asic004">Oklahoma</qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi003asic005">Arkansas</qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi003asic006">Louisiana</qti-simple-choice>
+            </qti-choice-interaction>
+        </div>
+    </qti-item-body>
+    <qti-response-processing>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="FEEDBACKBASIC">
+            <qti-base-value base-type="identifier">empty</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-response-condition>
+            <qti-response-if>
+                <qti-not>
+                    <qti-is-null>
+                        <qti-variable identifier="RESPONSE_1" />
+                    </qti-is-null>
+                </qti-not>
+                <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+                    <qti-sum>
+                        <qti-variable identifier="RESPONSE_1_SCORE" />
+                        <qti-map-response identifier="RESPONSE_1" />
+                    </qti-sum>
+                </qti-set-outcome-value>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X91137-t01as01asi003f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-if>
+        </qti-response-condition>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-variable identifier="RESPONSE_1_SCORE" />
+        </qti-set-outcome-value>
+    </qti-response-processing>
+    <qti-modal-feedback identifier="X91137-t01as01asi003f001" outcome-identifier="FEEDBACKBASIC" show-hide="show" title="Feedback">
+        <qti-content-body>
+            <p>QTI Feedback</p>
+        </qti-content-body>
+    </qti-modal-feedback>
+</qti-assessment-item>

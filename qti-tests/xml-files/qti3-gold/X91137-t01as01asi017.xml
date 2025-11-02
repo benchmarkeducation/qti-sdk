@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<qti-assessment-item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" title="Question-17" adaptive="false" time-dependent="false" identifier="X91137-t01as01asi017">
+    <qti-response-declaration identifier="RESPONSE_1" cardinality="single" base-type="string" />
+    <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="RESPONSE_1_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MAXSCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>4</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="FEEDBACKBASIC" cardinality="single" base-type="identifier">
+        <qti-default-value>
+            <qti-value>empty</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MINSCORE" cardinality="single" base-type="float" view="testConstructor">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-stylesheet href="styles/X91137-t01css001.css" type="text/css" />
+    <qti-item-body>
+        <qti-rubric-block view="scorer" use="scoring">
+            <qti-content-body>
+                <p>
+                    <strong>Informative/Explanatory Writing</strong>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>The response is well organized and developed. It demonstrates all of the features of informative writing and includes accurate information from the source(s). The writer uses conventions of grammar and sentence structure correctly and has few or no mistakes in capitalization, punctuation, and spelling.</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>The response is adequately organized and developed. It demonstrates most features of informative writing and includes accurate information from the source(s). The writer uses conventions of grammar and sentence structure correctly most of the time and may make some mistakes in capitalization, punctuation, and spelling, but they do not hinder meaning.</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>The response is somewhat organized and developed. It demonstrates some features of informative writing and includes some information from the source(s). The writer uses conventions of grammar and sentence structure correctly some of the time and makes many mistakes in capitalization, punctuation, and spelling, which hinder the overall meaning.</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>The response is disorganized and undeveloped. It demonstrates little understanding of informative writing and does not develop the topic. The writer rarely uses conventions of grammar and sentence structure correctly and makes many mistakes in capitalization, punctuation, and spelling, which hinder the overall meaning.</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>The response does not fit the writing prompt or is incomplete.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>
+                    <strong>Grammar Rubric: Grade 4</strong>
+                </p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>4</td>
+                            <td>
+                                The writer correctly implements all conventions. The writer:
+                                <br />
+                                <ul>
+                                    <li>produces well-developed complete sentences.</li>
+                                    <li>efficiently revises and corrects sentence fragments and run-ons.</li>
+                                    <li>uses parts of speech in unique ways.</li>
+                                    <li>uses grammar conventions in clear and concise ways.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>
+                                The writer implements most conventions. The writer:
+                                <br />
+                                <ul>
+                                    <li>produces complete sentences.</li>
+                                    <li>revises and corrects sentence fragments and run-ons most of the time</li>
+                                    <li>uses correct parts of speech most of the time.</li>
+                                    <li>uses correct grammar conventions most of the time.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                The writer implements some conventions. The writer:
+                                <br />
+                                <ul>
+                                    <li>produces complete sentences some of the time.</li>
+                                    <li>revises and corrects sentence fragments and run-ons some of the time.</li>
+                                    <li>uses correct parts of speech some of the time.</li>
+                                    <li>uses correct grammar conventions some of the time.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>
+                                The writer implements few, if any, conventions. The writer:
+                                <br />
+                                <ul>
+                                    <li>rarely produces complete sentences.</li>
+                                    <li>rarely revises and corrects sentence fragments and run-ons.</li>
+                                    <li>rarely uses correct parts of speech.</li>
+                                    <li>rarely uses correct grammar conventions.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </qti-content-body>
+        </qti-rubric-block>
+        <qti-rubric-block view="candidate" use="ext:passage">
+            <qti-content-body>
+                <object type="text/html" data="html/X91137-t01html001.html" />
+                <object type="text/html" data="html/X91137-t01html002.html" />
+            </qti-content-body>
+        </qti-rubric-block>
+        <div class="pane QTI-3-6">
+        </div>
+        <div class="pane QTI-3-6">
+            <p>
+                <strong>Read the prompt. Refer to &quot;A Long Drought&quot; and &quot;Lost in the Dust&quot; to write a response.</strong>
+            </p>
+            <audio>
+                <source src="media/X91137-question017-audio001.mp3" type="audio/mpeg" />
+            </audio>
+            <p>
+                <strong>17. </strong>
+                Based on these two passages, how does a severe drought change the way people live? Type an informative essay for an online student website to explain how a drought changes people&apos;s lives. Use details and examples from both passages to support your ideas. Be sure to use complete sentences and follow the conventions of standard English.
+            </p>
+            <qti-extended-text-interaction response-identifier="RESPONSE_1" />
+        </div>
+    </qti-item-body>
+    <qti-response-processing>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="FEEDBACKBASIC">
+            <qti-base-value base-type="identifier">empty</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-response-condition>
+            <qti-response-if>
+                <qti-not>
+                    <qti-is-null>
+                        <qti-variable identifier="RESPONSE_1" />
+                    </qti-is-null>
+                </qti-not>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X91137-t01as01asi017f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-if>
+        </qti-response-condition>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-variable identifier="RESPONSE_1_SCORE" />
+        </qti-set-outcome-value>
+    </qti-response-processing>
+    <qti-modal-feedback identifier="X91137-t01as01asi017f001" outcome-identifier="FEEDBACKBASIC" show-hide="show" title="Feedback">
+        <qti-content-body>
+            <p>QTI Feedback</p>
+        </qti-content-body>
+    </qti-modal-feedback>
+</qti-assessment-item>

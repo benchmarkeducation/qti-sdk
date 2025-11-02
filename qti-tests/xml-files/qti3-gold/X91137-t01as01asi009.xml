@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<qti-assessment-item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" title="Question-9" adaptive="false" time-dependent="false" identifier="X91137-t01as01asi009">
+    <qti-response-declaration identifier="RESPONSE_1" cardinality="multiple" base-type="directedPair">
+        <qti-correct-response>
+            <qti-value>X91137-t01as01asi009asic008 X91137-t01as01asi009asic001</qti-value>
+            <qti-value>X91137-t01as01asi009asic004 X91137-t01as01asi009asic002</qti-value>
+            <qti-value>X91137-t01as01asi009asic007 X91137-t01as01asi009asic003</qti-value>
+        </qti-correct-response>
+        <qti-mapping default-value="0">
+            <qti-map-entry map-key="X91137-t01as01asi009asic008 X91137-t01as01asi009asic001" mapped-value="1" />
+            <qti-map-entry map-key="X91137-t01as01asi009asic004 X91137-t01as01asi009asic002" mapped-value="1" />
+            <qti-map-entry map-key="X91137-t01as01asi009asic007 X91137-t01as01asi009asic003" mapped-value="1" />
+        </qti-mapping>
+    </qti-response-declaration>
+    <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="RESPONSE_1_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MAXSCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>2</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="FEEDBACKBASIC" cardinality="single" base-type="identifier">
+        <qti-default-value>
+            <qti-value>empty</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MINSCORE" cardinality="single" base-type="float" view="testConstructor">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-stylesheet href="styles/X91137-t01css001.css" type="text/css" />
+    <qti-item-body>
+        <qti-rubric-block view="scorer" use="scoring">
+            <qti-content-body>
+                <h2>Scoring Rubric for Question 9 </h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>Two points for all three correct responses</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>One point for one or two correct responses</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>Zero points for no correct responses</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </qti-content-body>
+        </qti-rubric-block>
+        <qti-rubric-block view="candidate" use="ext:passage">
+            <qti-content-body>
+                <object type="text/html" data="html/X91137-t01html002.html" />
+            </qti-content-body>
+        </qti-rubric-block>
+        <div class="pane QTI-3-6">
+        </div>
+        <div class="pane QTI-3-6">
+            <audio>
+                <source src="media/X91137-question009-audio001.mp3" type="audio/mpeg" />
+            </audio>
+            <p>
+                <strong>9. </strong>
+                The chart lists events in &#x201c;Lost in the Dust.&#x201d; Drop <strong>one</strong> possible cause for each event in the chart. (Two causes will not be used.)
+            </p>
+            <qti-gap-match-interaction response-identifier="RESPONSE_1" shuffle="false">
+                <qti-prompt><strong>Possible Causes:</strong></qti-prompt>
+                <qti-gap-text match-max="1" identifier="X91137-t01as01asi009asic004">A. Dust and grit covered the drying clothes outside.</qti-gap-text>
+                <qti-gap-text match-max="1" identifier="X91137-t01as01asi009asic005">B. Mama hung sheets on the line to dry.</qti-gap-text>
+                <qti-gap-text match-max="1" identifier="X91137-t01as01asi009asic006">C. The author ran into the wheat and got lost.</qti-gap-text>
+                <qti-gap-text match-max="1" identifier="X91137-t01as01asi009asic007">D. After three years of drought, Daddy could not grow any wheat.</qti-gap-text>
+                <qti-gap-text match-max="1" identifier="X91137-t01as01asi009asic008">E. Droughts and dust storms struck the area for years.</qti-gap-text>
+                <blockquote>
+                    <div>
+                        <div>
+                            <p><strong>Causes</strong></p>
+                        </div>
+                        <div>
+                            <p><strong>Events</strong></p>
+                        </div>
+                        <div>
+                            <p>
+                                <qti-gap identifier="X91137-t01as01asi009asic001" />
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                The family&#x2019;s fields were destroyed.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <qti-gap identifier="X91137-t01as01asi009asic002" />
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Mama set up a clothesline in the cellar.
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                <qti-gap identifier="X91137-t01as01asi009asic003" />
+                            </p>
+                            <div>
+                                <p>
+                                    Mama urged Daddy to move to California.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </blockquote>
+            </qti-gap-match-interaction>
+        </div>
+    </qti-item-body>
+    <qti-response-processing>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="FEEDBACKBASIC">
+            <qti-base-value base-type="identifier">empty</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-response-condition>
+            <qti-response-if>
+                <qti-and>
+                    <qti-gte>
+                        <qti-sum>
+                            <qti-map-response identifier="RESPONSE_1" />
+                        </qti-sum>
+                        <qti-base-value base-type="float">1</qti-base-value>
+                    </qti-gte>
+                    <qti-lte>
+                        <qti-sum>
+                            <qti-map-response identifier="RESPONSE_1" />
+                        </qti-sum>
+                        <qti-base-value base-type="float">2</qti-base-value>
+                    </qti-lte>
+                </qti-and>
+                <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+                    <qti-base-value base-type="float">1</qti-base-value>
+                </qti-set-outcome-value>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X91137-t01as01asi009f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-if>
+            <qti-response-else-if>
+                <qti-equal tolerance-mode="exact">
+                    <qti-map-response identifier="RESPONSE_1" />
+                    <qti-base-value base-type="float">3</qti-base-value>
+                </qti-equal>
+                <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+                    <qti-base-value base-type="float">2</qti-base-value>
+                </qti-set-outcome-value>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X91137-t01as01asi009f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-else-if>
+            <qti-response-else>
+                <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+                    <qti-base-value base-type="float">0</qti-base-value>
+                </qti-set-outcome-value>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X91137-t01as01asi009f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-else>
+        </qti-response-condition>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-variable identifier="RESPONSE_1_SCORE" />
+        </qti-set-outcome-value>
+    </qti-response-processing>
+    <qti-modal-feedback identifier="X91137-t01as01asi009f001" outcome-identifier="FEEDBACKBASIC" show-hide="show" title="Feedback">
+        <qti-content-body>
+            <p>QTI Feedback</p>
+        </qti-content-body>
+    </qti-modal-feedback>
+</qti-assessment-item>

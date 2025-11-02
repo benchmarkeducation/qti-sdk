@@ -117,6 +117,16 @@ class Qti30MarshallerFactory extends MarshallerFactory
         $this->addMappingEntry('qti-map-response', MapResponseMarshaller::class);
         $this->addMappingEntry('qti-not', OperatorMarshaller::class);
         $this->addMappingEntry('qti-is-null', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-and', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-or', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-multiple', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-ordered', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-equal', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-match', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-lt', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-lte', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-gt', OperatorMarshaller::class);
+        $this->addMappingEntry('qti-correct', CorrectMarshaller::class);
         $this->addMappingEntry('qti-hottext', HottextMarshaller::class);
         $this->addMappingEntry('qti-inline-choice', InlineChoiceMarshaller::class);
         $this->addMappingEntry('qti-simple-choice', SimpleChoiceMarshaller::class);
