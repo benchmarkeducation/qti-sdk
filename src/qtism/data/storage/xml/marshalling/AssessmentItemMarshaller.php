@@ -38,7 +38,6 @@ use qtism\data\state\TemplateDeclarationCollection;
  */
 class AssessmentItemMarshaller extends Marshaller
 {
-    use VersionAwareMarshaller;
 
     /**
      * Marshall an AssessmentItem object into a DOMElement object.

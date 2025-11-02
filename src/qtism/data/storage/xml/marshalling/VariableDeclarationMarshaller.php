@@ -35,7 +35,6 @@ use qtism\data\state\VariableDeclaration;
  */
 class VariableDeclarationMarshaller extends Marshaller
 {
-    use VersionAwareMarshaller;
     /**
      * Marshall a VariableDeclaration object into a DOMElement object.
      *

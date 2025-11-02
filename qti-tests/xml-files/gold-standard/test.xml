@@ -22,7 +22,7 @@
         
     </qti-test-part>
 
-    <!-- Outcome processing temporarily commented out due to missing QTI 3.0 marshallers -->
+    <!-- QTI 3.0 outcome processing requires additional marshaller fixes -->
     <!-- <qti-outcome-processing>
         <qti-set-outcome-value identifier="TOTAL_SCORE">
             <qti-sum>

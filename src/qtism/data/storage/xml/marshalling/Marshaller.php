@@ -43,6 +43,7 @@ use RuntimeException;
  */
 abstract class Marshaller
 {
+    use VersionAwareMarshaller;
     /**
      * The DOMCradle is a DOMDocument object which will be used as a 'DOMElement cradle'. It
      * gives the opportunity to marshallers to create DOMElement that can be imported in an

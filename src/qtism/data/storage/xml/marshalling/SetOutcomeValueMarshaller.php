@@ -42,8 +42,7 @@ class SetOutcomeValueMarshaller extends Marshaller
      */
     protected function marshall(QtiComponent $component): DOMElement
     {
-        $elementName = ($this->getVersion() === '3.0.0') ? 'qti-set-outcome-value' : 'setOutcomeValue';
-        $element = $this->createElement($component, $elementName);
+        $element = $this->createElement($component);
         $marshaller = $this->getMarshallerFactory()->createMarshaller($component->getExpression());
         $element->appendChild($marshaller->marshall($component->getExpression()));
 

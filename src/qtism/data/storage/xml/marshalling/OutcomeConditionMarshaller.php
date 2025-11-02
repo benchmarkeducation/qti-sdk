@@ -100,7 +100,8 @@ class OutcomeConditionMarshaller extends RecursiveMarshaller
      */
     protected function isElementFinal(DOMNode $element): bool
     {
-        $exclusion = ['outcomeIf', 'outcomeElseIf', 'outcomeElse', 'outcomeCondition'];
+        $exclusion = ['outcomeIf', 'outcomeElseIf', 'outcomeElse', 'outcomeCondition',
+                      'qti-outcome-if', 'qti-outcome-else-if', 'qti-outcome-else', 'qti-outcome-condition'];
 
         return !in_array($element->localName, $exclusion);
     }
@@ -124,13 +125,13 @@ class OutcomeConditionMarshaller extends RecursiveMarshaller
     protected function getChildrenElements(DOMElement $element): array
     {
         return $this->getChildElementsByTagName($element, [
-            'outcomeIf',
-            'outcomeElseIf',
-            'outcomeElse',
-            'exitTest',
-            'lookupOutcomeValue',
-            'setOutcomeValue',
-            'outcomeCondition',
+            'outcomeIf', 'qti-outcome-if',
+            'outcomeElseIf', 'qti-outcome-else-if',
+            'outcomeElse', 'qti-outcome-else',
+            'exitTest', 'qti-exit-test',
+            'lookupOutcomeValue', 'qti-lookup-outcome-value',
+            'setOutcomeValue', 'qti-set-outcome-value',
+            'outcomeCondition', 'qti-outcome-condition',
         ]);
     }
 
@@ -165,7 +166,7 @@ class OutcomeConditionMarshaller extends RecursiveMarshaller
      */
     protected function createCollection(DOMElement $currentNode): QtiComponentCollection
     {
-        if ($currentNode->localName != 'outcomeCondition') {
+        if ($currentNode->localName != 'outcomeCondition' && $currentNode->localName != 'qti-outcome-condition') {
             return new OutcomeRuleCollection();
         } else {
             return new QtiComponentCollection();

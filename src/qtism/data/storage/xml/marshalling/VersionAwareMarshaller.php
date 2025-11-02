@@ -22,10 +22,15 @@ trait VersionAwareMarshaller
 
     private static array $elementMap = [
         'assessmentItem' => 'qti-assessment-item',
+        'assessmentTest' => 'qti-assessment-test',
+        'testPart' => 'qti-test-part',
+        'assessmentSection' => 'qti-assessment-section',
+        'assessmentItemRef' => 'qti-assessment-item-ref',
         'responseDeclaration' => 'qti-response-declaration',
         'outcomeDeclaration' => 'qti-outcome-declaration',
         'itemBody' => 'qti-item-body',
         'responseProcessing' => 'qti-response-processing',
+        'outcomeProcessing' => 'qti-outcome-processing',
         'correctResponse' => 'qti-correct-response',
         'defaultValue' => 'qti-default-value',
         'value' => 'qti-value',
@@ -40,12 +45,16 @@ trait VersionAwareMarshaller
         'baseValue' => 'qti-base-value',
         'responseCondition' => 'qti-response-condition',
         'responseIf' => 'qti-response-if',
+        'outcomeCondition' => 'qti-outcome-condition',
+        'outcomeIf' => 'qti-outcome-if',
         'not' => 'qti-not',
         'isNull' => 'qti-is-null',
         'variable' => 'qti-variable',
         'sum' => 'qti-sum',
         'mapResponse' => 'qti-map-response',
-        'modalFeedback' => 'qti-modal-feedback'
+        'modalFeedback' => 'qti-modal-feedback',
+        'testVariables' => 'qti-test-variables',
+        'gte' => 'qti-gte'
     ];
 
     protected function getAttributeAs(DOMElement $element, string $name, ?string $type = null)
