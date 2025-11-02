@@ -99,7 +99,11 @@ class OutcomeDeclarationMarshallerTest extends QtiSmTestCase
 
         $this::assertInstanceOf(DOMElement::class, $element);
         $this::assertEquals($expectedExternalScored, $element->getAttribute('externalScored'));
-        $this::assertEquals('integer', $element->getAttribute('baseType'));
+        
+        // Check for correct attribute name based on QTI version
+        $baseTypeAttr = $qtiVersion === '3.0.0' ? 'base-type' : 'baseType';
+        $this::assertEquals('integer', $element->getAttribute($baseTypeAttr));
+        
         $this::assertEquals('outcome1', $element->getAttribute('identifier'));
         $this::assertEquals('single', $element->getAttribute('cardinality'));
     }
