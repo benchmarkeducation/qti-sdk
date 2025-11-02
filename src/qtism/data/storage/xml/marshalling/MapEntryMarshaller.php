@@ -96,8 +96,8 @@ class MapEntryMarshaller extends Marshaller
     {
         $element = $this->createElement($component);
 
-        $this->setDOMElementAttribute($element, 'mapKey', $component->getMapKey());
-        $this->setDOMElementAttribute($element, 'mappedValue', $component->getMappedValue());
+        $this->setDOMElementAttribute($element, $this->getVersionedAttributeName('mapKey'), $component->getMapKey());
+        $this->setDOMElementAttribute($element, $this->getVersionedAttributeName('mappedValue'), $component->getMappedValue());
 
         if (Version::compare($this->getVersion(), '2.0.0', '>') === true) {
             $this->setDOMElementAttribute($element, 'caseSensitive', $component->isCaseSensitive());
@@ -116,10 +116,10 @@ class MapEntryMarshaller extends Marshaller
     protected function unmarshall(DOMElement $element): MapEntry
     {
         try {
-            $mapKey = $this->getDOMElementAttributeAs($element, 'mapKey');
+            $mapKey = $this->getDOMElementAttributeAs($element, $this->getVersionedAttributeName('mapKey'));
             $mapKey = Utils::stringToDatatype($mapKey, $this->getBaseType());
 
-            if (($mappedValue = $this->getDOMElementAttributeAs($element, 'mappedValue', 'float')) !== null) {
+            if (($mappedValue = $this->getDOMElementAttributeAs($element, $this->getVersionedAttributeName('mappedValue'), 'float')) !== null) {
                 $object = new MapEntry($mapKey, $mappedValue);
 
                 if (Version::compare($this->getVersion(), '2.0.0', '>') && ($caseSensitive = $this->getDOMElementAttributeAs($element, 'caseSensitive', 'boolean')) !== null) {

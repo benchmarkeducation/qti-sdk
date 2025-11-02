@@ -124,7 +124,7 @@ class MappingMarshaller extends Marshaller
      */
     protected function unmarshall(DOMElement $element): Mapping
     {
-        $mapEntriesElts = $this->getChildElementsByTagName($element, 'mapEntry');
+        $mapEntriesElts = $this->getChildElementsByTagName($element, $this->getVersionedElementName('mapEntry'));
         $mapEntries = new MapEntryCollection();
 
         foreach ($mapEntriesElts as $mapEntryElt) {

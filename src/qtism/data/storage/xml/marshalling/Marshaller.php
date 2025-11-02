@@ -160,6 +160,40 @@ abstract class Marshaller
         'ul',
         'uploadInteraction',
         'var',
+        // QTI 3.0 kebab-case versions
+        'qti-associate-interaction',
+        'qti-choice-interaction',
+        'qti-custom-interaction',
+        'qti-drawing-interaction',
+        'qti-extended-text-interaction',
+        'qti-feedback-block',
+        'qti-feedback-inline',
+        'qti-gap-img',
+        'qti-gap-match-interaction',
+        'qti-gap-text',
+        'qti-graphic-associate-interaction',
+        'qti-graphic-gap-match-interaction',
+        'qti-graphic-order-interaction',
+        'qti-hotspot-interaction',
+        'qti-hottext',
+        'qti-hottext-interaction',
+        'qti-info-control',
+        'qti-inline-choice',
+        'qti-inline-choice-interaction',
+        'qti-item-body',
+        'qti-match-interaction',
+        'qti-media-interaction',
+        'qti-order-interaction',
+        'qti-position-object-interaction',
+        'qti-prompt',
+        'qti-rubric-block',
+        'qti-select-point-interaction',
+        'qti-simple-associable-choice',
+        'qti-simple-choice',
+        'qti-slider-interaction',
+        'qti-template-block',
+        'qti-template-inline',
+        'qti-upload-interaction',
     ];
 
     /**
@@ -207,6 +241,46 @@ abstract class Marshaller
         'templateInline',
         'textEntryInteraction',
         'uploadInteraction',
+        // QTI 3.0 kebab-case versions
+        'qti-associable-hotspot',
+        'qti-associate-interaction',
+        'qti-choice-interaction',
+        'qti-custom-interaction',
+        'qti-drawing-interaction',
+        'qti-end-attempt-interaction',
+        'qti-extended-text-interaction',
+        'qti-feedback-block',
+        'qti-feedback-inline',
+        'qti-gap',
+        'qti-gap-img',
+        'qti-gap-match-interaction',
+        'qti-gap-text',
+        'qti-graphic-associate-interaction',
+        'qti-graphic-gap-match-interaction',
+        'qti-graphic-order-interaction',
+        'qti-hotspot-choice',
+        'qti-hotspot-interaction',
+        'qti-hottext',
+        'qti-hottext-interaction',
+        'qti-info-control',
+        'qti-inline-choice',
+        'qti-inline-choice-interaction',
+        'qti-match-interaction',
+        'qti-media-interaction',
+        'qti-order-interaction',
+        'qti-position-object-interaction',
+        'qti-position-object-stage',
+        'qti-printed-variable',
+        'qti-prompt',
+        'qti-rubric-block',
+        'qti-select-point-interaction',
+        'qti-simple-associable-choice',
+        'qti-simple-choice',
+        'qti-slider-interaction',
+        'qti-template-block',
+        'qti-template-inline',
+        'qti-text-entry-interaction',
+        'qti-upload-interaction',
     ];
 
     /**
@@ -238,6 +312,26 @@ abstract class Marshaller
         'sliderInteraction',
         'textEntryInteraction',
         'uploadInteraction',
+        // QTI 3.0 kebab-case versions
+        'qti-associable-hotspot',
+        'qti-associate-interaction',
+        'qti-choice-interaction',
+        'qti-drawing-interaction',
+        'qti-end-attempt-interaction',
+        'qti-extended-text-interaction',
+        'qti-gap',
+        'qti-gap-match-interaction',
+        'qti-graphic-associate-interaction',
+        'qti-hotspot-choice',
+        'qti-hotspot-interaction',
+        'qti-hottext-interaction',
+        'qti-match-interaction',
+        'qti-media-interaction',
+        'qti-order-interaction',
+        'qti-select-point-interaction',
+        'qti-slider-interaction',
+        'qti-text-entry-interaction',
+        'qti-upload-interaction',
     ];
 
     /**
@@ -310,6 +404,35 @@ abstract class Marshaller
     public function getVersion(): string
     {
         return $this->version;
+    }
+
+    /**
+     * Get the appropriate element name for the current QTI version.
+     *
+     * @param string $elementName The base element name (e.g., 'mapping')
+     * @return string The version-appropriate element name
+     */
+    protected function getVersionedElementName(string $elementName): string
+    {
+        if ($this->getVersion() === '3.0.0') {
+            $kebabCase = strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $elementName));
+            return 'qti-' . $kebabCase;
+        }
+        return $elementName;
+    }
+
+    /**
+     * Get the appropriate attribute name for the current QTI version.
+     *
+     * @param string $attributeName The base attribute name (e.g., 'mapKey')
+     * @return string The version-appropriate attribute name
+     */
+    protected function getVersionedAttributeName(string $attributeName): string
+    {
+        if ($this->getVersion() === '3.0.0') {
+            return strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $attributeName));
+        }
+        return $attributeName;
     }
 
     /**

@@ -139,8 +139,10 @@ class QTI3ComprehensiveTest {
             // Check interactions
             $choiceInteractions = $root->getElementsByTagName('qti-choice-interaction');
             $inlineChoiceInteractions = $root->getElementsByTagName('qti-inline-choice-interaction');
+            $hottextInteractions = $root->getElementsByTagName('qti-hottext-interaction');
             echo "✓ Choice interactions: {$choiceInteractions->length}\n";
             echo "✓ Inline choice interactions: {$inlineChoiceInteractions->length}\n";
+            echo "✓ Hottext interactions: {$hottextInteractions->length}\n";
             
             // Test item sessions with different responses
             $this->testItemSessions($doc);
@@ -158,11 +160,36 @@ class QTI3ComprehensiveTest {
     private function testItemSessions($doc) {
         echo "\n--- Item Session Tests ---\n";
         
-        // Test 1: Correct Answer
+        // First test basic session creation
+        try {
+            $itemSession = new AssessmentItemSession($doc->getDocumentComponent());
+            $itemSession->beginItemSession();
+            echo "✓ Item session created successfully\n";
+            
+            // Check available variables
+            echo "Response variables: ";
+            foreach ($itemSession->getResponseVariables() as $var) {
+                echo $var->getIdentifier() . "(" . $var->getCardinality() . "," . $var->getBaseType() . ") ";
+            }
+            echo "\n";
+            
+            echo "Outcome variables: ";
+            foreach ($itemSession->getOutcomeVariables() as $var) {
+                echo $var->getIdentifier() . " ";
+            }
+            echo "\n";
+            
+            $itemSession->endItemSession();
+            
+        } catch (Exception $e) {
+            echo "✗ Basic session test failed: {$e->getMessage()}\n";
+        }
+        
+        // Test with production hottext choices
         echo "\nTesting responses:\n";
-        $this->runItemSessionTest($doc, 'choice_were', 1.0, 'correct');
-        $this->runItemSessionTest($doc, 'choice_was', 0.0, 'incorrect');
-        $this->runItemSessionTest($doc, 'choice_are', 0.0, 'incorrect');
+        $this->runItemSessionTest($doc, 'X91137-t01as01asi001asic001', 1.0, 'X91137-t01as01asi001f001'); // Correct answer
+        $this->runItemSessionTest($doc, 'X91137-t01as01asi001asic002', 0.0, 'X91137-t01as01asi001f001'); // Incorrect answer - still gets feedback
+        $this->runItemSessionTest($doc, 'X91137-t01as01asi001asic003', 0.0, 'X91137-t01as01asi001f001'); // Incorrect answer - still gets feedback
     }
     
     private function runItemSessionTest($doc, $responseChoice, $expectedScore, $expectedFeedback) {
@@ -175,13 +202,14 @@ class QTI3ComprehensiveTest {
             $responses = new State();
             $responseVar = null;
             foreach ($itemSession->getResponseVariables() as $var) {
-                if ($var->getIdentifier() === 'RESPONSE') {
+                if ($var->getIdentifier() === 'RESPONSE_1') {
                     $responseVar = $var;
                     break;
                 }
             }
             
             if ($responseVar !== null) {
+                echo "  Found response variable: {$responseVar->getIdentifier()}\n";
                 $responseVariable = new ResponseVariable(
                     $responseVar->getIdentifier(),
                     $responseVar->getCardinality(),
@@ -190,11 +218,22 @@ class QTI3ComprehensiveTest {
                 );
                 $responses->setVariable($responseVariable);
                 
-                $itemSession->endAttempt($responses);
+                echo "  Attempting to end attempt with response: {$responseChoice}\n";
+                
+                // Try to process without response processing first to isolate the issue
+                try {
+                    $itemSession->endAttempt($responses);
+                } catch (\qtism\runtime\rules\ProcessingCollectionException $e) {
+                    echo "  ✗ Response processing failed\n";
+                    foreach ($e->getProcessingExceptions() as $error) {
+                        echo "    - " . get_class($error) . ": " . $error->getMessage() . "\n";
+                    }
+                    throw $e;
+                }
                 
                 // Check results
                 $scoreValue = $itemSession->getVariable('SCORE')->getValue();
-                $feedbackValue = $itemSession->getVariable('FEEDBACK')->getValue();
+                $feedbackValue = $itemSession->getVariable('FEEDBACKBASIC')->getValue();
                 
                 $numericScore = is_object($scoreValue) && method_exists($scoreValue, 'getValue') 
                     ? $scoreValue->getValue() : (float)$scoreValue;
@@ -204,11 +243,25 @@ class QTI3ComprehensiveTest {
                 
                 $itemSession->endItemSession();
             } else {
-                echo "  ✗ RESPONSE variable not found\n";
+                echo "  ✗ RESPONSE_1 variable not found\n";
+                echo "  Available variables: ";
+                foreach ($itemSession->getResponseVariables() as $var) {
+                    echo $var->getIdentifier() . " ";
+                }
+                echo "\n";
             }
             
         } catch (Exception $e) {
             echo "  ✗ Error: {$e->getMessage()}\n";
+            echo "  Debug: " . get_class($e) . "\n";
+            
+            // Check if it's a ProcessingCollectionException with nested errors
+            if ($e instanceof \qtism\runtime\rules\ProcessingCollectionException) {
+                echo "  Processing errors:\n";
+                foreach ($e->getProcessingExceptions() as $error) {
+                    echo "    - " . get_class($error) . ": " . $error->getMessage() . "\n";
+                }
+            }
         }
     }
     

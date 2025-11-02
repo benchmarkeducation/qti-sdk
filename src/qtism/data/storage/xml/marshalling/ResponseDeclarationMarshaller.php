@@ -81,22 +81,21 @@ class ResponseDeclarationMarshaller extends VariableDeclarationMarshaller
             $object->setCardinality($baseComponent->getCardinality());
             $object->setDefaultValue($baseComponent->getDefaultValue());
 
-            $correctResponseTag = ($this->getVersion() === '3.0.0') ? 'qti-correct-response' : 'correctResponse';
-            $correctResponseElts = $this->getChildElementsByTagName($element, $correctResponseTag);
+            $correctResponseElts = $this->getChildElementsByTagName($element, $this->getVersionedElementName('correctResponse'));
             if (count($correctResponseElts) === 1) {
                 $correctResponseElt = $correctResponseElts[0];
                 $marshaller = $this->getMarshallerFactory()->createMarshaller($correctResponseElt, [$baseComponent->getBaseType()]);
                 $object->setCorrectResponse($marshaller->unmarshall($correctResponseElt));
             }
 
-            $mappingElts = $this->getChildElementsByTagName($element, 'mapping');
+            $mappingElts = $this->getChildElementsByTagName($element, $this->getVersionedElementName('mapping'));
             if (count($mappingElts) === 1) {
                 $mappingElt = $mappingElts[0];
                 $marshaller = $this->getMarshallerFactory()->createMarshaller($mappingElt, [$baseComponent->getBaseType()]);
                 $object->setMapping($marshaller->unmarshall($mappingElt));
             }
 
-            $areaMappingElts = $this->getChildElementsByTagName($element, 'areaMapping');
+            $areaMappingElts = $this->getChildElementsByTagName($element, $this->getVersionedElementName('areaMapping'));
             if (count($areaMappingElts) === 1) {
                 $areaMappingElt = $areaMappingElts[0];
                 $marshaller = $this->getMarshallerFactory()->createMarshaller($areaMappingElt);
