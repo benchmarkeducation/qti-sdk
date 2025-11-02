@@ -22,7 +22,7 @@
         
     </qti-test-part>
 
-    <!-- QTI 3.0 outcome processing requires additional marshaller fixes -->
+    <!-- QTI 3.0 outcome processing requires marshaller factory class resolution fixes -->
     <!-- <qti-outcome-processing>
         <qti-set-outcome-value identifier="TOTAL_SCORE">
             <qti-sum>
