@@ -22,8 +22,7 @@
         
     </qti-test-part>
 
-    <!-- QTI 3.0 outcome processing requires marshaller factory class resolution fixes -->
-    <!-- <qti-outcome-processing>
+    <qti-outcome-processing>
         <qti-set-outcome-value identifier="TOTAL_SCORE">
             <qti-sum>
                 <qti-test-variables variable-identifier="SCORE"/>
@@ -41,5 +40,5 @@
                 </qti-set-outcome-value>
             </qti-outcome-if>
         </qti-outcome-condition>
-    </qti-outcome-processing> -->
+    </qti-outcome-processing>
 </qti-assessment-test>
