@@ -197,7 +197,11 @@ trait VersionAwareMarshaller
         'statsOperator' => 'qti-stats-operator',
         'roundTo' => 'qti-round-to',
         'customOperator' => 'qti-custom-operator',
-        'repeat' => 'qti-repeat'
+        'repeat' => 'qti-repeat',
+        
+        // Branching and flow control
+        'branchRule' => 'qti-branch-rule',
+        'preCondition' => 'qti-pre-condition'
     ];
 
     protected function getAttributeAs(DOMElement $element, string $name, ?string $type = null)

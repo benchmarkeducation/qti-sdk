@@ -159,6 +159,8 @@ class Qti30MarshallerFactory extends MarshallerFactory
         $this->addMappingEntry('qti-template-block', TemplateElementMarshaller::class);
         $this->addMappingEntry('qti-template-inline', TemplateElementMarshaller::class);
         $this->addMappingEntry('qti-info-control', InfoControlMarshaller::class);
+        $this->addMappingEntry('qti-branch-rule', BranchRuleMarshaller::class);
+        $this->addMappingEntry('qti-pre-condition', PreConditionMarshaller::class);
 
         $this->addMappingEntry('sub', SsmlSubMarshaller::class, 'http://www.w3.org/2010/10/synthesis');
     }
