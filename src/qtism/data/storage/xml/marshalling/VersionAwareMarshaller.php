@@ -201,7 +201,12 @@ trait VersionAwareMarshaller
         
         // Branching and flow control
         'branchRule' => 'qti-branch-rule',
-        'preCondition' => 'qti-pre-condition'
+        'preCondition' => 'qti-pre-condition',
+
+        // Test structure elements
+        'itemSessionControl' => 'qti-item-session-control',
+        'timeLimits' => 'qti-time-limits',
+        'testFeedback' => 'qti-test-feedback'
     ];
 
     protected function getAttributeAs(DOMElement $element, string $name, ?string $type = null)
