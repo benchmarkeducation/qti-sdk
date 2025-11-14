@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<qti-assessment-item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" title="Question-11" adaptive="false" time-dependent="false" identifier="X91137-t01as01asi011">
+    <qti-response-declaration identifier="RESPONSE_1" cardinality="single" base-type="string" />
+    <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="RESPONSE_1_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MAXSCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>2</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="FEEDBACKBASIC" cardinality="single" base-type="identifier">
+        <qti-default-value>
+            <qti-value>empty</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MINSCORE" cardinality="single" base-type="float" view="testConstructor">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-stylesheet href="styles/X91137-t01css001.css" type="text/css" />
+    <qti-item-body>
+        <qti-rubric-block view="scorer" use="scoring">
+            <qti-content-body>
+                <h2>Scoring Rubric for Question 11 </h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>2</td>
+                            <td>The response clearly explains how the map adds to the reader&apos;s understanding of events and includes relevant details from the passages.</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>The response partially explains how the map adds to the reader&apos;s understanding of events and includes limited relevant details from the passages.</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>The response provides no evidence of the ability to explain how the map adds to the reader&apos;s understanding of events and includes no relevant details from the passages.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </qti-content-body>
+        </qti-rubric-block>
+        <qti-rubric-block view="scorer" use="scoring">
+            <qti-content-body>
+                <div id="qti-sample-answer">
+                    <p>
+                        <strong>Question 11 Sample 2-Point Response</strong>
+                    </p>
+                    <p>The map gives information about the states that were affected by the drought and the states that became known as the &#x201c;Dust Bowl.&#x201d; It also gives an idea of how large the area was and how awful it must have been because people could not easily escape from the dust and the drought. It helps the reader understand why some people, like the mother in &#x201c;Lost in the Dust,&#x201d; wanted to move far away to a place like California.</p>
+                </div>
+            </qti-content-body>
+        </qti-rubric-block>
+        <qti-rubric-block view="candidate" use="ext:passage">
+            <qti-content-body>
+                <object type="text/html" data="html/X91137-t01html001.html" />
+                <object type="text/html" data="html/X91137-t01html002.html" />
+            </qti-content-body>
+        </qti-rubric-block>
+        <div class="pane QTI-3-6">
+        </div>
+        <div class="pane QTI-3-6">
+            <p>
+                <strong>Read the following prompt. Refer back to &quot;A Long Drought&quot; and &quot;Lost in the Dust&quot; to type a response.</strong>
+            </p>
+            <audio>
+                <source src="media/X91137-question011-audio001.mp3" type="audio/mpeg" />
+            </audio>
+            <p>
+                <strong>11. </strong>
+                How does the map in &quot;A Long Drought&quot; add to the reader&apos;s understanding of events in both passages? Type 2-3 sentences to explain. Use details from the map and both passages to support your answer.
+            </p>
+            <qti-extended-text-interaction response-identifier="RESPONSE_1" />
+        </div>
+    </qti-item-body>
+    <qti-response-processing>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="FEEDBACKBASIC">
+            <qti-base-value base-type="identifier">empty</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-response-condition>
+            <qti-response-if>
+                <qti-not>
+                    <qti-is-null>
+                        <qti-variable identifier="RESPONSE_1" />
+                    </qti-is-null>
+                </qti-not>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X91137-t01as01asi011f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-if>
+        </qti-response-condition>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-variable identifier="RESPONSE_1_SCORE" />
+        </qti-set-outcome-value>
+    </qti-response-processing>
+    <qti-modal-feedback identifier="X91137-t01as01asi011f001" outcome-identifier="FEEDBACKBASIC" show-hide="show" title="Feedback">
+        <qti-content-body>
+            <p>QTI Feedback</p>
+        </qti-content-body>
+    </qti-modal-feedback>
+</qti-assessment-item>

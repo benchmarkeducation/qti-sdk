@@ -249,7 +249,18 @@ class OperatorMarshaller extends RecursiveMarshaller
     protected function getChildrenElements(DOMElement $element): array
     {
         $qti2Names = array_merge(self::getOperators(), self::getExpressions());
-        $qti3Names = array_map(function($name) { return 'qti-' . $name; }, $qti2Names);
+        // Map specific camelCase to kebab-case for QTI 3.0 elements that use kebab-case
+        $kebabCaseMap = [
+            'isNull' => 'is-null',
+            'mapResponse' => 'map-response',
+            'baseValue' => 'base-value',
+            'setOutcomeValue' => 'set-outcome-value'
+        ];
+        
+        $qti3Names = array_map(function($name) use ($kebabCaseMap) { 
+            $kebabName = isset($kebabCaseMap[$name]) ? $kebabCaseMap[$name] : $name;
+            return 'qti-' . $kebabName;
+        }, $qti2Names);
         return $this->getChildElementsByTagName($element, array_merge($qti2Names, $qti3Names));
     }
 
@@ -286,7 +297,9 @@ class OperatorMarshaller extends RecursiveMarshaller
     private function mapQti30ElementName(string $elementName): string
     {
         if (strpos($elementName, 'qti-') === 0) {
-            return substr($elementName, 4); // Remove 'qti-' prefix
+            $withoutPrefix = substr($elementName, 4); // Remove 'qti-' prefix
+            // Convert kebab-case back to camelCase
+            return lcfirst(str_replace('-', '', ucwords($withoutPrefix, '-')));
         }
         return $elementName;
     }

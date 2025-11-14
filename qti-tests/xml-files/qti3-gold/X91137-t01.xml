@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<qti-assessment-test xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" identifier="X91137-t01" title="Unit 8 Assessment (Gr. 4)">
+    <qti-outcome-declaration identifier="numAttempts" cardinality="single" base-type="integer">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="duration" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="completionStatus" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="PASS" cardinality="single" base-type="boolean">
+        <qti-default-value>
+            <qti-value>false</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="PASS_SCORE" cardinality="single" base-type="float" view="testConstructor">
+        <qti-default-value>
+            <qti-value>1</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="FEEDBACKMODAL" cardinality="multiple" base-type="identifier" view="testConstructor" />
+    <qti-outcome-declaration identifier="MAXSCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-time-limits max-time="3600" />
+    <qti-test-part navigation-mode="nonlinear" submission-mode="individual" identifier="X91137-t01p01">
+        <qti-item-session-control allow-comment="false" max-attempts="1" />
+        <qti-assessment-section fixed="false" title="Unit 8 Assessment (Gr. 4)" visible="true" identifier="X91137-t01as01">
+            <qti-assessment-item-ref identifier="X91137-t01as01asi001" href="X91137-t01as01asi001.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi002" href="X91137-t01as01asi002.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi003" href="X91137-t01as01asi003.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi004" href="X91137-t01as01asi004.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi005" href="X91137-t01as01asi005.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi006" href="X91137-t01as01asi006.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi007" href="X91137-t01as01asi007.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi008" href="X91137-t01as01asi008.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi009" href="X91137-t01as01asi009.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi010" href="X91137-t01as01asi010.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi011" href="X91137-t01as01asi011.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi012" href="X91137-t01as01asi012.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi013" href="X91137-t01as01asi013.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi014" href="X91137-t01as01asi014.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi015" href="X91137-t01as01asi015.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi016" href="X91137-t01as01asi016.xml" fixed="false" />
+            <qti-assessment-item-ref identifier="X91137-t01as01asi017" href="X91137-t01as01asi017.xml" fixed="false" />
+        </qti-assessment-section>
+    </qti-test-part>
+    <qti-outcome-processing>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-sum>
+                <qti-test-variables variable-identifier="SCORE" />
+            </qti-sum>
+        </qti-set-outcome-value>
+        <qti-outcome-condition>
+            <qti-outcome-if>
+                <qti-gte>
+                    <qti-sum>
+                        <qti-test-variables variable-identifier="SCORE" />
+                    </qti-sum>
+                    <qti-base-value base-type="float">1</qti-base-value>
+                </qti-gte>
+                <qti-set-outcome-value identifier="PASS">
+                    <qti-base-value base-type="boolean">true</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-outcome-if>
+            <qti-outcome-else>
+                <qti-set-outcome-value identifier="PASS">
+                    <qti-base-value base-type="boolean">false</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-outcome-else>
+        </qti-outcome-condition>
+        <qti-outcome-condition>
+            <qti-outcome-if>
+                <qti-and>
+                    <qti-match>
+                        <qti-base-value base-type="boolean">true</qti-base-value>
+                        <qti-variable identifier="PASS" />
+                    </qti-match>
+                </qti-and>
+                <qti-set-outcome-value identifier="FEEDBACKMODAL">
+                    <qti-multiple>
+                        <qti-variable identifier="FEEDBACKMODAL" />
+                        <qti-base-value base-type="identifier">X91137-t01f001</qti-base-value>
+                    </qti-multiple>
+                </qti-set-outcome-value>
+            </qti-outcome-if>
+        </qti-outcome-condition>
+        <qti-outcome-condition>
+            <qti-outcome-if>
+                <qti-and>
+                    <qti-match>
+                        <qti-base-value base-type="boolean">false</qti-base-value>
+                        <qti-variable identifier="PASS" />
+                    </qti-match>
+                </qti-and>
+                <qti-set-outcome-value identifier="FEEDBACKMODAL">
+                    <qti-multiple>
+                        <qti-variable identifier="FEEDBACKMODAL" />
+                        <qti-base-value base-type="identifier">X91137-t01f002</qti-base-value>
+                    </qti-multiple>
+                </qti-set-outcome-value>
+            </qti-outcome-if>
+        </qti-outcome-condition>
+        <qti-outcome-condition>
+            <qti-outcome-if>
+                <qti-and>
+                    <qti-gte>
+                        <qti-variable identifier="SCORE" />
+                        <qti-base-value base-type="float">17</qti-base-value>
+                    </qti-gte>
+                </qti-and>
+                <qti-set-outcome-value identifier="FEEDBACKMODAL">
+                    <qti-multiple>
+                        <qti-variable identifier="FEEDBACKMODAL" />
+                        <qti-base-value base-type="identifier">X91137-t01f003</qti-base-value>
+                    </qti-multiple>
+                </qti-set-outcome-value>
+            </qti-outcome-if>
+        </qti-outcome-condition>
+    </qti-outcome-processing>
+    <qti-test-feedback identifier="X91137-t01f001" outcome-identifier="FEEDBACKMODAL" show-hide="show" access="atEnd" title="Feedback Passed">
+        <qti-content-body>
+            <p>You have answered enough questions to pass this test.</p>
+        </qti-content-body>
+    </qti-test-feedback>
+    <qti-test-feedback identifier="X91137-t01f002" outcome-identifier="FEEDBACKMODAL" show-hide="show" access="atEnd" title="Feedback Failed">
+        <qti-content-body>
+            <p>You have not answered enough questions and have failed this test.</p>
+        </qti-content-body>
+    </qti-test-feedback>
+    <qti-test-feedback identifier="X91137-t01f003" outcome-identifier="FEEDBACKMODAL" show-hide="show" access="atEnd" title="Feedback Excellent Pass">
+        <qti-content-body>
+            <p>You have scored most of the questions correct and have passed excellently.</p>
+        </qti-content-body>
+    </qti-test-feedback>
+</qti-assessment-test>

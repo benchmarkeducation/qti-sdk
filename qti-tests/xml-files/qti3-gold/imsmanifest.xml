@@ -1,0 +1,1480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="X91137-m" xmlns="http://www.imsglobal.org/xsd/qti/qtiv3p0/imscp_v1p1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:imsmd="http://www.imsglobal.org/xsd/imsmd_v1p2" xsi:schemaLocation="http://ltsc.ieee.org/xsd/LOM https://purl.imsglobal.org/spec/md/v1p3/schema/xsd/imsmd_loose_v1p3p2.xsd
+                    http://www.imsglobal.org/xsd/qti/qtiv3p0/imscp_v1p1 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqtiv3p0_imscpv1p2_v1p0.xsd
+                    http://www.imsglobal.org/xsd/imsqti_metadata_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_metadatav3p0_v1p0.xsd" xmlns:imsqti="http://www.imsglobal.org/xsd/imsqti_metadata_v3p0">
+    <metadata>
+        <schema>QTI Package</schema>
+        <schemaversion>3.0.1</schemaversion>
+        <!-- <version type="package_version">0.102</version> -->
+    </metadata>
+    <organizations />
+    <resources>
+        <resource identifier="X91137-t01" type="imsqti_test_xmlv3p0" href="X91137-t01.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">Unit 8 Assessment (Gr. 4)</string>
+                        </title>
+                        <language>en</language>
+                        <description>
+                            <string language="en">Edition: nat</string>
+                        </description>
+                        <keyword>
+                            <string language="en">Unit 8 Assessment (Gr. 4)</string>
+                        </keyword>
+                    </general>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi001.xml" />
+            <file href="X91137-t01as01asi002.xml" />
+            <file href="X91137-t01as01asi003.xml" />
+            <file href="X91137-t01as01asi004.xml" />
+            <file href="X91137-t01as01asi005.xml" />
+            <file href="X91137-t01as01asi006.xml" />
+            <file href="X91137-t01as01asi007.xml" />
+            <file href="X91137-t01as01asi008.xml" />
+            <file href="X91137-t01as01asi009.xml" />
+            <file href="X91137-t01as01asi010.xml" />
+            <file href="X91137-t01as01asi011.xml" />
+            <file href="X91137-t01as01asi012.xml" />
+            <file href="X91137-t01as01asi013.xml" />
+            <file href="X91137-t01as01asi014.xml" />
+            <file href="X91137-t01as01asi015.xml" />
+            <file href="X91137-t01as01asi016.xml" />
+            <file href="X91137-t01as01asi017.xml" />
+            <file href="html/X91137-t01html001.html" />
+            <file href="html/X91137-t01html002.html" />
+            <file href="html/X91137-t01html003.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi001" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi001.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi001-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RI.4.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi001.xml" />
+            <file href="media/X91137-question001-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html001.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi002" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi002.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi002-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RI.4.5,CCSS.ELA-Literacy.RI.4.1</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2,DOK.3</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi002.xml" />
+            <file href="media/X91137-question002-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html001.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi003" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi003.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi003-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RI.4.7</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.1</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi003.xml" />
+            <file href="media/X91137-question003-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html001.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi004" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi004.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi004-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RF.4.3</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.1</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi004.xml" />
+            <file href="media/X91137-question004-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html001.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi005" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi005.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi005-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RI.4.4,CCSS.ELA-Literacy.L.4.4</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi005.xml" />
+            <file href="media/X91137-question005-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html001.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi006" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi006.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi006-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RF.4.3</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.1</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi006.xml" />
+            <file href="media/X91137-question006-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html002.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi007" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi007.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi007-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RI.4.6,CCSS.ELA-Literacy.RI.4.1</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.3</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi007.xml" />
+            <file href="media/X91137-question007-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html001.html" />
+            <file href="html/X91137-t01html002.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi008" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi008.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi008-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.L.4.4c</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi008.xml" />
+            <file href="media/X91137-question008-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html002.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi009" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi009.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi009-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RI.4.1,CCSS.ELA-Literacy.RI.4.5</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi009.xml" />
+            <file href="media/X91137-question009-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html002.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi010" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi010.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi010-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RI.4.1,CCSS.ELA-Literacy.RI.4.6</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.3</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi010.xml" />
+            <file href="media/X91137-question010-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html002.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi011" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi011.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi011-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.RI.4.1,CCSS.ELA-Literacy.RI.4.6,CCSS.ELA-Literacy.RI.4.9</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.3</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi011.xml" />
+            <file href="media/X91137-question011-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html001.html" />
+            <file href="html/X91137-t01html002.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi012" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi012.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi012-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.L.4.1c</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi012.xml" />
+            <file href="media/X91137-question012-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html003.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi013" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi013.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi013-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.L.4.1a</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi013.xml" />
+            <file href="media/X91137-question013-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html003.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi014" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi014.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi014-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.L.4.1c</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi014.xml" />
+            <file href="media/X91137-question014-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html003.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi015" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi015.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi015-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.L.4.1a</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi015.xml" />
+            <file href="media/X91137-question015-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html003.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi016" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi016.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi016-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.L.4.1a</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>DOK.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi016.xml" />
+            <file href="media/X91137-question016-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html003.html" />
+        </resource>
+        <resource identifier="X91137-t01as01asi017" type="imsqti_item_xmlv3p0" href="X91137-t01as01asi017.xml">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <general>
+                        <identifier>
+                            <entry>X91137-t01as01asi017-snippet</entry>
+                        </identifier>
+                        <title>
+                            <string language="en">This is a question snippet.</string>
+                        </title>
+                    </general>
+                    <imsmd:classification>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Task</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Standards</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string>CCSS.ELA-Literacy.W.4.2,CCSS.ELA-Literacy.L.4.1,CCSS.ELA-Literacy.L.4.2</imsmd:string>
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Strands</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Skill Name</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Claims and Targets</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                        <imsmd:taxonPath>
+                            <imsmd:source>
+                                <imsmd:string>Depth of Knowledge/DOK</imsmd:string>
+                            </imsmd:source>
+                            <imsmd:taxon>
+                                <imsmd:entry>
+                                    <imsmd:string />
+                                </imsmd:entry>
+                            </imsmd:taxon>
+                        </imsmd:taxonPath>
+                    </imsmd:classification>
+                </lom>
+            </metadata>
+            <file href="X91137-t01as01asi017.xml" />
+            <file href="media/X91137-question017-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="html/X91137-t01html001.html" />
+            <file href="html/X91137-t01html002.html" />
+        </resource>
+        <resource identifier="X91137-t01html001" type="webcontent" href="html/X91137-t01html001.html">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <imsmd:general>
+                        <imsmd:title>
+                            <imsmd:string xml:lang="en">A Long Drought</imsmd:string>
+                        </imsmd:title>
+                        <imsmd:description>
+                            <imsmd:string xml:lang="en" />
+                        </imsmd:description>
+                    </imsmd:general>
+                    <imsmd:educational>
+                        <imsmd:learningResourceType>
+                            <source>BEC</source>
+                            <value>Passage</value>
+                        </imsmd:learningResourceType>
+                    </imsmd:educational>
+                </lom>
+            </metadata>
+            <file href="html/X91137-t01html001.html" />
+            <file href="media/X91137-passage001-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+            <file href="media/X91137-passage001-img001.jpg" />
+        </resource>
+        <resource identifier="X91137-t01html002" type="webcontent" href="html/X91137-t01html002.html">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <imsmd:general>
+                        <imsmd:title>
+                            <imsmd:string xml:lang="en">Lost in the Dust</imsmd:string>
+                        </imsmd:title>
+                        <imsmd:description>
+                            <imsmd:string xml:lang="en" />
+                        </imsmd:description>
+                    </imsmd:general>
+                    <imsmd:educational>
+                        <imsmd:learningResourceType>
+                            <source>BEC</source>
+                            <value>Passage</value>
+                        </imsmd:learningResourceType>
+                    </imsmd:educational>
+                </lom>
+            </metadata>
+            <file href="html/X91137-t01html002.html" />
+            <file href="media/X91137-passage002-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+        </resource>
+        <resource identifier="X91137-t01html003" type="webcontent" href="html/X91137-t01html003.html">
+            <metadata>
+                <lom xmlns="http://ltsc.ieee.org/xsd/LOM">
+                    <imsmd:general>
+                        <imsmd:title>
+                            <imsmd:string xml:lang="en" />
+                        </imsmd:title>
+                        <imsmd:description>
+                            <imsmd:string xml:lang="en" />
+                        </imsmd:description>
+                    </imsmd:general>
+                    <imsmd:educational>
+                        <imsmd:learningResourceType>
+                            <source>BEC</source>
+                            <value>Passage</value>
+                        </imsmd:learningResourceType>
+                    </imsmd:educational>
+                </lom>
+            </metadata>
+            <file href="html/X91137-t01html003.html" />
+            <file href="media/X91137-passage003-audio001.mp3" />
+            <file href="styles/X91137-t01css001.css" />
+        </resource>
+        <resource identifier="X91137-t01css001" type="webcontent" href="styles/X91137-t01css001.css">
+            <file href="styles/X91137-t01css001.css" />
+        </resource>
+    </resources>
+</manifest>

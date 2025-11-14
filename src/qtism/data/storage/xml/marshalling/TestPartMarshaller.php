@@ -49,10 +49,8 @@ class TestPartMarshaller extends Marshaller
         $element = $this->createElement($component);
 
         $this->setDOMElementAttribute($element, 'identifier', $component->getIdentifier());
-        $navigationModeAttr = ($this->getVersion() === '3.0.0') ? 'navigation-mode' : 'navigationMode';
-        $submissionModeAttr = ($this->getVersion() === '3.0.0') ? 'submission-mode' : 'submissionMode';
-        $this->setDOMElementAttribute($element, $navigationModeAttr, NavigationMode::getNameByConstant($component->getNavigationMode()));
-        $this->setDOMElementAttribute($element, $submissionModeAttr, SubmissionMode::getNameByConstant($component->getSubmissionMode()));
+        $this->setDOMElementAttribute($element, $this->getVersionedAttributeName('navigationMode'), NavigationMode::getNameByConstant($component->getNavigationMode()));
+        $this->setDOMElementAttribute($element, $this->getVersionedAttributeName('submissionMode'), SubmissionMode::getNameByConstant($component->getSubmissionMode()));
 
         foreach ($component->getPreConditions() as $preCondition) {
             $marshaller = $this->getMarshallerFactory()->createMarshaller($preCondition);
@@ -98,16 +96,15 @@ class TestPartMarshaller extends Marshaller
     protected function unmarshall(DOMElement $element): TestPart
     {
         if (($identifier = $this->getDOMElementAttributeAs($element, 'identifier')) !== null) {
-            $navigationModeAttr = ($this->getVersion() === '3.0.0') ? 'navigation-mode' : 'navigationMode';
-            $submissionModeAttr = ($this->getVersion() === '3.0.0') ? 'submission-mode' : 'submissionMode';
-            if (($navigationMode = $this->getDOMElementAttributeAs($element, $navigationModeAttr)) !== null) {
-                if (($submissionMode = $this->getDOMElementAttributeAs($element, $submissionModeAttr)) !== null) {
+            if (($navigationMode = $this->getAttributeAs($element, 'navigationMode')) !== null) {
+                if (($submissionMode = $this->getAttributeAs($element, 'submissionMode')) !== null) {
                     // We do not use the regular DOMElement::getElementsByTagName method
                     // because it is recursive. We only want the first level elements with
                     // tagname = 'assessmentSection'.
-                    $sectionTags = ($this->getVersion() === '3.0.0') ? 
-                        ['qti-assessment-section', 'qti-assessment-section-ref'] : 
-                        ['assessmentSection', 'assessmentSectionRef'];
+                    $sectionTags = [
+                        $this->getVersionedElementName('assessmentSection'),
+                        $this->getVersionedElementName('assessmentSectionRef')
+                    ];
                     $assessmentSectionElts = $this->getChildElementsByTagName($element, $sectionTags);
                     $assessmentSections = new SectionPartCollection();
                     foreach ($assessmentSectionElts as $sectElt) {
@@ -122,7 +119,7 @@ class TestPartMarshaller extends Marshaller
                         $object = new TestPart($identifier, $assessmentSections, $navigationMode, $submissionMode);
 
                         // preConditions
-                        $preConditionElts = $this->getChildElementsByTagName($element, 'preCondition');
+                        $preConditionElts = $this->getChildElementsByTagName($element, [$this->getVersionedElementName('preCondition')]);
                         $preConditions = new PreConditionCollection();
                         foreach ($preConditionElts as $preConditionElt) {
                             $marshaller = $this->getMarshallerFactory()->createMarshaller($preConditionElt);
@@ -131,7 +128,7 @@ class TestPartMarshaller extends Marshaller
                         $object->setPreConditions($preConditions);
 
                         // branchRules
-                        $branchRuleElts = $this->getChildElementsByTagName($element, 'branchRule');
+                        $branchRuleElts = $this->getChildElementsByTagName($element, [$this->getVersionedElementName('branchRule')]);
                         $branchRules = new BranchRuleCollection();
                         foreach ($branchRuleElts as $branchRuleElt) {
                             $marshaller = $this->getMarshallerFactory()->createMarshaller($branchRuleElt);
@@ -140,7 +137,7 @@ class TestPartMarshaller extends Marshaller
                         $object->setBranchRules($branchRules);
 
                         // itemSessionControl
-                        $itemSessionControlElts = $this->getChildElementsByTagName($element, 'itemSessionControl');
+                        $itemSessionControlElts = $this->getChildElementsByTagName($element, [$this->getVersionedElementName('itemSessionControl')]);
                         if (count($itemSessionControlElts) === 1) {
                             $marshaller = $this->getMarshallerFactory()->createMarshaller($itemSessionControlElts[0]);
                             $itemSessionControl = $marshaller->unmarshall($itemSessionControlElts[0]);
@@ -148,7 +145,7 @@ class TestPartMarshaller extends Marshaller
                         }
 
                         // timeLimits
-                        $timeLimitsElts = $this->getChildElementsByTagName($element, 'timeLimits');
+                        $timeLimitsElts = $this->getChildElementsByTagName($element, [$this->getVersionedElementName('timeLimits')]);
                         if (count($timeLimitsElts) === 1) {
                             $marshaller = $this->getMarshallerFactory()->createMarshaller($timeLimitsElts[0]);
                             $timeLimits = $marshaller->unmarshall($timeLimitsElts[0]);
@@ -156,7 +153,7 @@ class TestPartMarshaller extends Marshaller
                         }
 
                         // testFeedbacks
-                        $testFeedbackElts = $this->getChildElementsByTagName($element, 'testFeedback');
+                        $testFeedbackElts = $this->getChildElementsByTagName($element, [$this->getVersionedElementName('testFeedback')]);
                         $testFeedbacks = new TestFeedbackCollection();
                         foreach ($testFeedbackElts as $testFeedbackElt) {
                             $marshaller = $this->getMarshallerFactory()->createMarshaller($testFeedbackElt);

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<qti-assessment-item xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.imsglobal.org/xsd/imsqtiasi_v3p0" xsi:schemaLocation="http://www.imsglobal.org/xsd/imsqtiasi_v3p0 https://purl.imsglobal.org/spec/qti/v3p0/schema/xsd/imsqti_asiv3p0_v1p0.xsd" title="__rep_question-title" adaptive="false" time-dependent="false" identifier="X91137-t01as01asi005">
+    <qti-response-declaration identifier="RESPONSE_1" cardinality="single" base-type="identifier">
+        <qti-correct-response>
+            <qti-value>X91137-t01as01asi005asic004</qti-value>
+        </qti-correct-response>
+        <qti-mapping default-value="0">
+            <qti-map-entry map-key="X91137-t01as01asi005asic004" mapped-value="1" />
+        </qti-mapping>
+    </qti-response-declaration>
+    <qti-response-declaration identifier="RESPONSE_2" cardinality="multiple" base-type="identifier">
+        <qti-correct-response>
+            <qti-value>X91137-t01as01asi005asic006</qti-value>
+            <qti-value>X91137-t01as01asi005asic007</qti-value>
+        </qti-correct-response>
+        <qti-mapping default-value="0">
+            <qti-map-entry map-key="X91137-t01as01asi005asic006" mapped-value="1" />
+            <qti-map-entry map-key="X91137-t01as01asi005asic007" mapped-value="1" />
+        </qti-mapping>
+    </qti-response-declaration>
+    <qti-outcome-declaration identifier="SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="RESPONSE_1_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="RESPONSE_2_SCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MAXSCORE" cardinality="single" base-type="float">
+        <qti-default-value>
+            <qti-value>3</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="FEEDBACKBASIC" cardinality="single" base-type="identifier">
+        <qti-default-value>
+            <qti-value>empty</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-outcome-declaration identifier="MINSCORE" cardinality="single" base-type="float" view="testConstructor">
+        <qti-default-value>
+            <qti-value>0</qti-value>
+        </qti-default-value>
+    </qti-outcome-declaration>
+    <qti-stylesheet href="styles/X91137-t01css001.css" type="text/css" />
+    <qti-item-body>
+        <qti-rubric-block view="candidate" use="ext:passage">
+            <qti-content-body>
+                <object type="text/html" data="html/X91137-t01html001.html" />
+            </qti-content-body>
+        </qti-rubric-block>
+        <div class="pane QTI-3-6">
+        </div>
+        <div class="pane QTI-3-6">
+            <audio>
+                <source src="media/X91137-question005-audio001.mp3" type="audio/mpeg" />
+            </audio>
+            <p>
+                <strong>5. </strong>
+                This question has two parts. Answer Part A and then Part B.
+            </p>
+            <p>
+                <strong>Part A </strong>
+                In paragraph 6, what is the meaning of the word
+                <span class="underline">migrated</span>
+                ?
+            </p>
+            <qti-choice-interaction response-identifier="RESPONSE_1" shuffle="false" max-choices="1" min-choices="1">
+                <qti-simple-choice identifier="X91137-t01as01asi005asic001">
+                    <strong>A. </strong>
+                    looked toward someone or something
+                </qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi005asic002">
+                    <strong>B. </strong>
+                    found hope in a different place
+                </qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi005asic003">
+                    <strong>C. </strong>
+                    quit work and applied for a new job
+                </qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi005asic004">
+                    <strong>D. </strong>
+                    moved from one region to another
+                </qti-simple-choice>
+            </qti-choice-interaction>
+            <p>
+                <strong>Part B </strong>
+                Which
+                <strong>two</strong>
+                sentences in paragraph 6 give clues to the meaning of
+                <span class="underline">migrated</span>
+                ?
+            </p>
+            <qti-choice-interaction response-identifier="RESPONSE_2" shuffle="false" max-choices="2" min-choices="1">
+                <qti-simple-choice identifier="X91137-t01as01asi005asic005">
+                    <strong>A. </strong>
+                    &quot;During the years of drought, many farmers in the Dust Bowl felt hopeless.&quot;
+                </qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi005asic006">
+                    <strong>B. </strong>
+                    &quot;Many tried to find farm work in California.&quot;
+                </qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi005asic007">
+                    <strong>C. </strong>
+                    &quot;They moved there in the hopes of a better life.&quot;
+                </qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi005asic008">
+                    <strong>D. </strong>
+                    &quot;The government set up programs to help farmers.&quot;
+                </qti-simple-choice>
+                <qti-simple-choice identifier="X91137-t01as01asi005asic009">
+                    <strong>E. </strong>
+                    &quot;The farmers learned how to take care of the soil and make it productive again.&quot;
+                </qti-simple-choice>
+            </qti-choice-interaction>
+        </div>
+    </qti-item-body>
+    <qti-response-processing>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="RESPONSE_2_SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="FEEDBACKBASIC">
+            <qti-base-value base-type="identifier">empty</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+            <qti-base-value base-type="float">0.0</qti-base-value>
+        </qti-set-outcome-value>
+        <qti-response-condition>
+            <qti-response-if>
+                <qti-not>
+                    <qti-is-null>
+                        <qti-variable identifier="RESPONSE_1" />
+                    </qti-is-null>
+                </qti-not>
+                <qti-set-outcome-value identifier="RESPONSE_1_SCORE">
+                    <qti-sum>
+                        <qti-variable identifier="RESPONSE_1_SCORE" />
+                        <qti-map-response identifier="RESPONSE_1" />
+                    </qti-sum>
+                </qti-set-outcome-value>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X91137-t01as01asi005f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-if>
+        </qti-response-condition>
+        <qti-response-condition>
+            <qti-response-if>
+                <qti-and>
+                    <qti-match>
+                        <qti-variable identifier="RESPONSE_1" />
+                        <qti-correct identifier="RESPONSE_1" />
+                    </qti-match>
+                    <qti-not>
+                        <qti-is-null>
+                            <qti-variable identifier="RESPONSE_2" />
+                        </qti-is-null>
+                    </qti-not>
+                </qti-and>
+                <qti-set-outcome-value identifier="RESPONSE_2_SCORE">
+                    <qti-sum>
+                        <qti-variable identifier="RESPONSE_2_SCORE" />
+                        <qti-map-response identifier="RESPONSE_2" />
+                    </qti-sum>
+                </qti-set-outcome-value>
+                <qti-set-outcome-value identifier="FEEDBACKBASIC">
+                    <qti-base-value base-type="identifier">X91137-t01as01asi005f001</qti-base-value>
+                </qti-set-outcome-value>
+            </qti-response-if>
+        </qti-response-condition>
+        <qti-set-outcome-value identifier="SCORE">
+            <qti-sum>
+                <qti-variable identifier="RESPONSE_1_SCORE" />
+                <qti-variable identifier="RESPONSE_2_SCORE" />
+            </qti-sum>
+        </qti-set-outcome-value>
+    </qti-response-processing>
+    <qti-modal-feedback identifier="X91137-t01as01asi005f001" outcome-identifier="FEEDBACKBASIC" show-hide="show" title="Feedback">
+        <qti-content-body>
+            <p>QTI Feedback</p>
+        </qti-content-body>
+    </qti-modal-feedback>
+</qti-assessment-item>

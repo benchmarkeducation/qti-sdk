@@ -197,19 +197,29 @@ class ResponseControlMarshaller extends RecursiveMarshaller
     
     private function getQti30ElementName(QtiComponent $component): string
     {
-        if ($this->getVersion() !== '3.0.0') {
-            return null;
-        }
-        
         $className = get_class($component);
         $shortName = substr($className, strrpos($className, '\\') + 1);
         
-        $mapping = [
-            'ResponseIf' => 'qti-response-if',
-            'ResponseElseIf' => 'qti-response-else-if',
-            'ResponseElse' => 'qti-response-else'
-        ];
+        if ($this->getVersion() === '3.0.0') {
+            $mapping = [
+                'ResponseIf' => 'qti-response-if',
+                'ResponseElseIf' => 'qti-response-else-if',
+                'ResponseElse' => 'qti-response-else',
+                'ExitResponse' => 'qti-exit-response',
+                'LookupOutcomeValue' => 'qti-lookup-outcome-value',
+                'SetOutcomeValue' => 'qti-set-outcome-value',
+                'ResponseCondition' => 'qti-response-condition'
+            ];
+            
+            if (isset($mapping[$shortName])) {
+                return $mapping[$shortName];
+            }
+            
+            // Convert camelCase to kebab-case for QTI 3.0
+            $kebabCase = strtolower(preg_replace('/([a-z])([A-Z])/', '$1-$2', $shortName));
+            return 'qti-' . $kebabCase;
+        }
         
-        return $mapping[$shortName] ?? null;
+        return lcfirst($shortName);
     }
 }

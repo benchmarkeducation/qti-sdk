@@ -64,17 +64,23 @@ class OutcomeControlMarshaller extends RecursiveMarshaller
         if (count($expressionElts) > 0) {
             $marshaller = $this->getMarshallerFactory()->createMarshaller($expressionElts[0]);
             $expression = $marshaller->unmarshall($expressionElts[0]);
-        } elseif (($element->localName == 'outcomeIf' || $element->localName == 'outcomeElseIf') && count($expressionElts) == 0) {
+        } elseif (($element->localName == 'outcomeIf' || $element->localName == 'outcomeElseIf' ||
+                   $element->localName == 'qti-outcome-if' || $element->localName == 'qti-outcome-else-if') && count($expressionElts) == 0) {
             $msg = "An '" . $element->localName . "' must contain an 'expression' element. None found at line " . $element->getLineNo() . "'.";
             throw new UnmarshallingException($msg, $element);
         }
 
-        if ($element->localName == 'outcomeIf' || $element->localName == 'outcomeElseIf') {
-            $className = 'qtism\\data\\rules\\' . ucfirst($element->localName);
+        // Convert QTI 3.0 element names to QTI 2.x equivalent for component class resolution
+        $elementName = $element->localName;
+        $qti2ElementName = $this->getQti2ElementName($elementName);
+        
+        if ($elementName == 'outcomeIf' || $elementName == 'outcomeElseIf' || 
+            $elementName == 'qti-outcome-if' || $elementName == 'qti-outcome-else-if') {
+            $className = 'qtism\\data\\rules\\' . ucfirst($qti2ElementName);
             $class = new ReflectionClass($className);
             $object = Reflection::newInstance($class, [$expression, $children]);
         } else {
-            $className = 'qtism\\data\\rules\\' . ucfirst($element->localName);
+            $className = 'qtism\\data\\rules\\' . ucfirst($qti2ElementName);
             $class = new ReflectionClass($className);
             $object = Reflection::newInstance($class, [$children]);
         }
@@ -111,11 +117,11 @@ class OutcomeControlMarshaller extends RecursiveMarshaller
      */
     protected function isElementFinal(DOMNode $element): bool
     {
-        return in_array($element->localName, array_merge([
-            'exitTest',
-            'lookupOutcomeValue',
-            'setOutcomeValue',
-        ]));
+        return in_array($element->localName, [
+            'exitTest', 'qti-exit-test',
+            'lookupOutcomeValue', 'qti-lookup-outcome-value',
+            'setOutcomeValue', 'qti-set-outcome-value',
+        ]);
     }
 
     /**
@@ -136,10 +142,10 @@ class OutcomeControlMarshaller extends RecursiveMarshaller
     protected function getChildrenElements(DOMElement $element): array
     {
         return $this->getChildElementsByTagName($element, [
-            'exitTest',
-            'lookupOutcomeValue',
-            'setOutcomeValue',
-            'outcomeCondition',
+            'exitTest', 'qti-exit-test',
+            'lookupOutcomeValue', 'qti-lookup-outcome-value',
+            'setOutcomeValue', 'qti-set-outcome-value',
+            'outcomeCondition', 'qti-outcome-condition',
         ]);
     }
 
@@ -167,5 +173,22 @@ class OutcomeControlMarshaller extends RecursiveMarshaller
     public function getExpectedQtiClassName(): string
     {
         return '';
+    }
+    
+    /**
+     * Convert QTI 3.0 element name to QTI 2.x equivalent for component class resolution
+     * @param string $elementName
+     * @return string
+     */
+    private function getQti2ElementName(string $elementName): string
+    {
+        // Convert qti-outcome-if -> outcomeIf, qti-outcome-else-if -> outcomeElseIf, etc.
+        if (strpos($elementName, 'qti-') === 0) {
+            $withoutPrefix = substr($elementName, 4); // Remove 'qti-'
+            // Convert kebab-case to camelCase
+            return lcfirst(str_replace('-', '', ucwords($withoutPrefix, '-')));
+        }
+        
+        return $elementName;
     }
 }

@@ -42,6 +42,7 @@ use qtism\data\storage\LocalFileResolver;
 use qtism\data\storage\xml\versions\CompactVersion;
 use qtism\data\storage\xml\versions\QtiVersionException;
 use qtism\data\TestFeedbackRef;
+use qtism\common\utils\Version;
 use qtism\data\TestPart;
 use ReflectionException;
 use SplObjectStorage;
@@ -240,8 +241,16 @@ class XmlCompactDocument extends XmlDocument
                             }
 
                             $resolver->setBasePath($baseUri);
-                            self::resolveAssessmentItemRef($xmlAssessmentTestDocument, $compactRef, $resolver);
-
+                            try {
+                                self::resolveAssessmentItemRef($xmlAssessmentTestDocument, $compactRef, $resolver);
+                            } catch (XmlStorageException $e) {
+                                // QTI 3.0 allows graceful handling of missing items for branch rule evaluation
+                                if (Version::compare($xmlAssessmentTestDocument->getVersion(), '3.0.0', '>=')) {
+                                    $compactRef->setTitle($component->getIdentifier());
+                                } else {
+                                    throw $e;
+                                }
+                            }
                             $previousParts->replace($component, $compactRef);
                             break;
                         }
