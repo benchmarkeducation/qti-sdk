@@ -101,9 +101,10 @@ class TestPartMarshaller extends Marshaller
                     // We do not use the regular DOMElement::getElementsByTagName method
                     // because it is recursive. We only want the first level elements with
                     // tagname = 'assessmentSection'.
-                    $sectionTags = ($this->getVersion() === '3.0.0') ? 
-                        ['qti-assessment-section', 'qti-assessment-section-ref'] : 
-                        ['assessmentSection', 'assessmentSectionRef'];
+                    $sectionTags = [
+                        $this->getVersionedElementName('assessmentSection'),
+                        $this->getVersionedElementName('assessmentSectionRef')
+                    ];
                     $assessmentSectionElts = $this->getChildElementsByTagName($element, $sectionTags);
                     $assessmentSections = new SectionPartCollection();
                     foreach ($assessmentSectionElts as $sectElt) {
