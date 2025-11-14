@@ -38,6 +38,7 @@ class CompactVersion extends QtiVersion
         '2.2.2' => CompactVersion22::class,
         '2.2.3' => CompactVersion22::class,
         '2.2.4' => CompactVersion22::class,
+        '3.0.0' => CompactVersion30::class,
     ];
 
     public const UNSUPPORTED_VERSION_MESSAGE = 'QTI Compact is not supported for version "%s".';
@@ -45,6 +46,7 @@ class CompactVersion extends QtiVersion
     public const INFERRED_VERSIONS = [
         CompactVersion21::XMLNS => '2.1.0',
         CompactVersion22::XMLNS => '2.2.0',
+        CompactVersion30::XMLNS => '3.0.0',
     ];
 
     /**
