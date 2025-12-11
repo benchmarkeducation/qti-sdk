@@ -1152,7 +1152,7 @@ class AssessmentItemSession extends State
      *
      * @return bool
      */
-    protected function isMaxTimeReached(): bool
+    public function isMaxTimeReached(): bool
     {
         $reached = false;
 
@@ -1353,7 +1353,8 @@ class AssessmentItemSession extends State
             // As per QTI Specification, the allowSkipping attribute is consistent with the numberResponded operator.
             // In other words, the item can be submitted if at least one non-default value for at least one of the
             // response variables is provided.
-            if ($state->containsValuesEqualToVariableDefaultOnly() === true) {
+            // However, the implementation relies on the users not to provide any response variable in the state if it hasn't been set by a test taker.
+            if (!$session->isResponded()) {
                 throw new AssessmentItemSessionException(
                     "Skipping item '" . $this->getAssessmentItem()->getIdentifier() . "' is not allowed.",
                     $this,

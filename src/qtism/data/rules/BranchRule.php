@@ -13,9 +13,9 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+ * Foundation, Inc., 31 Milk St # 960789 Boston, MA 02196 USA.
  *
- * Copyright (c) 2013-2020 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
+ * Copyright (c) 2013-2025 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  * @author Jérôme Bogaerts <jerome@taotesting.com>
  * @license GPLv2
@@ -50,6 +50,16 @@ use qtism\data\QtiComponentCollection;
  */
 class BranchRule extends QtiComponent implements Rule
 {
+    public const EXIT_TEST = 'EXIT_TEST';
+    public const EXIT_TESTPART = 'EXIT_TESTPART';
+    public const EXIT_SECTION = 'EXIT_SECTION';
+
+    public const RESERVED_TARGETS = [
+        self::EXIT_TEST,
+        self::EXIT_TESTPART,
+        self::EXIT_SECTION,
+    ];
+
     /**
      * The expression of the BranchRule.
      *
@@ -69,6 +79,13 @@ class BranchRule extends QtiComponent implements Rule
      * @qtism-bean-property
      */
     private $target;
+
+    /**
+     * The parent identifier of the BranchRule.
+     *
+     * @qtism-bean-property
+     */
+    private ?string $parentIdentifier = null;
 
     /**
      * Create a new instance of BranchRule.
@@ -104,7 +121,7 @@ class BranchRule extends QtiComponent implements Rule
     }
 
     /**
-     * Set the target identifier of the BranchRule.
+     * Get the target identifier of the BranchRule.
      *
      * @return string A QTI Identifier.
      */
@@ -114,7 +131,7 @@ class BranchRule extends QtiComponent implements Rule
     }
 
     /**
-     * Get the target identifier of the BranchRule.
+     * Set the target identifier of the BranchRule.
      *
      * @param string $target A QTI Identifier.
      * @throws InvalidArgumentException If $target is not a valid QTI Identifier.
@@ -127,6 +144,31 @@ class BranchRule extends QtiComponent implements Rule
             $msg = "'Target' must be a valid QTI Identifier.";
             throw new InvalidArgumentException($msg);
         }
+    }
+
+    /**
+     * Get the parent identifier of the BranchRule.
+     *
+     * @return string|null A QTI Identifier or null if no parent provided.
+     */
+    public function getParentIdentifier(): ?string
+    {
+        return $this->parentIdentifier;
+    }
+
+    /**
+     * Set the parent identifier of the BranchRule.
+     *
+     * @param string $parentIdentifier A QTI Identifier.
+     * @throws InvalidArgumentException If $parentIdentifier is not a valid QTI Identifier.
+     */
+    public function setParentIdentifier(string $parentIdentifier): void
+    {
+        if (!Format::isIdentifier($parentIdentifier)) {
+            throw new InvalidArgumentException('"Parent" must be a valid QTI Identifier.');
+        }
+
+        $this->parentIdentifier = $parentIdentifier;
     }
 
     /**
